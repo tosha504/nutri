@@ -1,0 +1,56 @@
+@use "../sass/components/_breakpoints" as b;
+.banner-tnl {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: 0 15px;
+  padding: 0 0 25px;
+
+  @media (min-width: map-get(b.$grid-breakpoints, md)) {
+    padding: 0 0 50px;
+  }
+
+  @media (min-width: map-get(b.$grid-breakpoints, lg)) {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  &__left,
+  &__right {
+    flex: 1 1 100%;
+    @media (min-width: map-get(b.$grid-breakpoints, md)) {
+      flex: 0 1 50%;
+    }
+  }
+
+  &__right {
+    background-position: 100% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-right-radius: 15px;
+    @media (max-width: map-get(b.$grid-breakpoints, md)) {
+      min-height: 70vw;
+      border-bottom-left-radius: 15px;
+    }
+  }
+  &__left {
+    padding: 30px 10px;
+    color: var(--white);
+    @media (min-width: map-get(b.$grid-breakpoints, md)) {
+      border-bottom-left-radius: 15px;
+    }
+    @media (min-width: map-get(b.$grid-breakpoints, lg)) {
+      padding: 20px 20px 20px calc((100vw - 992px - 120px) / 2);
+    }
+    @media (min-width: map-get(b.$grid-breakpoints, xl)) {
+      padding: 50px 50px 50px calc((100vw - 1200px - 120px) / 2);
+    }
+  }
+  // &__content {
+  //   padding: 5% 0;
+  //   color: var(--white);
+  // }
+
+  h1 {
+    // padding: 20% 0;
+  }
+}

@@ -1,0 +1,32 @@
+.button {
+  border-radius: 50px;
+  color: black;
+  font-weight: 900;
+  font-size: 13px;
+  padding: 10px 20px;
+  max-width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__white {
+    color: var(--white);
+    border: 1px solid var(--white);
+    @media (hover: hover) {
+      &:hover {
+      }
+    }
+  }
+
+  &__primary {
+    border: 1px solid var(--black);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--primary-theme);
+        border: 1px solid var(--primary-theme);
+      }
+    }
+  }
+}

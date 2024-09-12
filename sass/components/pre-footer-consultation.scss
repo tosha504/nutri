@@ -1,0 +1,88 @@
+.consultation-tnl {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__left,
+  &__right {
+    flex: 1 1 100%;
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      flex: 1 1 50%;
+    }
+  }
+
+  &__left {
+    min-height: 40vh;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      min-height: 525px;
+    }
+
+    &_content {
+      padding: 20px;
+      width: 442px;
+      height: 386px;
+      position: absolute;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: -270px;
+      left: -226px;
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        bottom: -170px;
+        left: -126px;
+      }
+
+      p {
+        font-size: 18px;
+        position: absolute;
+
+        font-weight: bold;
+        right: 70px;
+        top: 30px;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+          right: 150px;
+          top: 100px;
+        }
+
+        span {
+          @extend %custom-span;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  &__right {
+    background-color: #e7e7e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      padding: 40px 20px;
+    }
+    &_title {
+      font-weight: 700;
+      font-size: clamp(25px, 3vw, 50px);
+      line-height: 1;
+
+      span {
+        &:first-child {
+          color: var(--primary-theme);
+        }
+        &:last-child {
+          @extend %custom-span;
+        }
+      }
+    }
+  }
+}

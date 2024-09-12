@@ -1,0 +1,119 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-weight: 300;
+  font-size: clamp(14px, 3vw, 16px);
+  color: var(--black);
+  font-family: var(--objective);
+  margin: 0;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  scrollbar-width: 10px;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    // background: $primaryTheme;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-theme);
+    border: 1px solid var(--white);
+  }
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.fixed-page {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1 1 100%;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    max-width: 90vw;
+    padding: 0px;
+  }
+
+  // @media (min-width: map-get($grid-breakpoints, lg)) {
+  //   max-width: 950px;
+  // }
+
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    max-width: 1200px;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, xxl)) {
+    max-width: 1400px;
+  }
+}
+
+ul {
+  // list-style: none;
+}
+
+a,
+a:active,
+a:hover {
+  outline: none;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+button,
+button:active,
+button:focus,
+button:hover,
+input,
+input:active,
+input:focus,
+input:hover,
+textarea,
+textarea:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

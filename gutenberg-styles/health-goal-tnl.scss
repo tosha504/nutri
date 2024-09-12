@@ -1,0 +1,113 @@
+@use "../sass/components/_breakpoints" as b;
+@use "../sass/components/extends-class.scss" as e;
+
+.health-goal-tnl {
+  &__content {
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  &__items-wrap {
+    position: relative;
+    #prev,
+    #next {
+      display: none;
+      @media (min-width: map-get(b.$grid-breakpoints,md)) {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        border: none;
+        background-position: center;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 10px 15px;
+        @media (hover: hover) {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    #prev {
+      left: -50px;
+      background-image: url(../assets/icons/arrows/nav-left.svg);
+    }
+
+    #next {
+      right: -50px;
+      background-image: url(../assets/icons/arrows/nav-right.svg);
+    }
+  }
+
+  &__items-slider {
+    padding: 25px 0;
+    @media (min-width: map-get(b.$grid-breakpoints, md)) {
+      padding: 50px 0;
+    }
+    &_item {
+      position: relative;
+      height: 100%;
+      background-size: cover;
+      background-position: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px;
+      margin: 0 10px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #fff;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          from(rgba(255, 255, 255, 0)),
+          to(rgba(0, 0, 0, 0.459))
+        );
+        background: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0),
+          rgba(0, 0, 0, 0.21892507)
+        );
+        z-index: 1;
+        width: 100%;
+      }
+      p {
+        color: var(--white);
+        line-height: 1;
+        z-index: 2;
+        font-size: clamp(18px, 2vw, 28px);
+        text-align: center;
+        font-weight: 700;
+        span {
+          @extend %custom-span;
+        }
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+
+  .slick-dots {
+    padding: 20px 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
