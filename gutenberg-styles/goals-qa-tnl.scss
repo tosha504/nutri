@@ -1,0 +1,139 @@
+@use "../sass/components/_breakpoints" as b;
+@use "../sass/components/extends-class.scss";
+.goals-qa-tnl {
+  margin: 0 15px;
+  padding: 25px 0;
+  background-color: var(--goal-bg);
+  border-radius: 20px;
+
+  @media (min-width: map-get(b.$grid-breakpoints, md)) {
+    padding: 50px 0;
+  }
+
+  @media (min-width: map-get(b.$grid-breakpoints, lg)) {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 0 15px;
+    @media (min-width: map-get(b.$grid-breakpoints, xl)) {
+      gap: 100px;
+    }
+  }
+
+  &__left {
+    flex: 1 1 calc(40% - 100px);
+    @media (max-width: map-get(b.$grid-breakpoints, md)) {
+      display: none;
+    }
+    img,
+    &_wrap {
+      border-radius: 20px;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 200px;
+      right: 0;
+
+      #mainImage {
+        margin-bottom: 20px;
+        min-height: 367px;
+        object-fit: cover;
+        opacity: 1;
+        transition: opacity 0.25s ease-in-out; /* Add a smooth transition */
+      }
+
+      #mainImage.fade-out {
+        opacity: 0; /* Make the image fade out */
+      }
+
+      #mainImage.fade-in {
+        opacity: 1; /* Fade the image back in */
+      }
+    }
+
+    &_wrap {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      padding: 20px;
+      background-color: var(--white);
+
+      img {
+        display: none;
+        @media (min-width: map-get(b.$grid-breakpoints, xl)) {
+          display: block;
+        }
+      }
+
+      &-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a {
+          font-size: 14px;
+          color: var(--black);
+        }
+      }
+    }
+  }
+
+  &__right {
+    flex: 1 1 100%;
+    @media (min-width: map-get(b.$grid-breakpoints, md)) {
+      flex: 0 1 calc(60% - 100px);
+    }
+    .content-goal {
+      margin-bottom: 20px;
+      @media (min-width: map-get(b.$grid-breakpoints, md)) {
+        margin-bottom: 0px;
+        padding-bottom: 300px;
+      }
+      .goal-subfield-title {
+        font-weight: 700;
+        font-size: clamp(25px, 2.5vw + 1rem, 35px);
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--black);
+        margin-bottom: 20px;
+        span {
+          @extend %custom-span;
+        }
+      }
+
+      p,
+      li {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      li {
+        margin-left: 20px;
+      }
+
+      &__buttons {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+      }
+
+      img {
+        &.attachment-full {
+          border-radius: 20px;
+          margin-top: 20px;
+          display: flex;
+          @media (min-width: map-get(b.$grid-breakpoints, md)) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -71,10 +71,6 @@ body {
     padding: 0px;
   }
 
-  // @media (min-width: map-get($grid-breakpoints, lg)) {
-  //   max-width: 950px;
-  // }
-
   @media (min-width: map-get($grid-breakpoints, xl)) {
     max-width: 1200px;
   }
@@ -82,10 +78,6 @@ body {
   @media (min-width: map-get($grid-breakpoints, xxl)) {
     max-width: 1400px;
   }
-}
-
-ul {
-  // list-style: none;
 }
 
 a,

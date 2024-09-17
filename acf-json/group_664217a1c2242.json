@@ -76,6 +76,13 @@
                 "operator": "==",
                 "value": "acf\/science-tnl"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/goal-help-tnl"
+            }
         ]
     ],
     "menu_order": 0,
@@ -87,5 +94,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1726058476
+    "modified": 1726573705
 }

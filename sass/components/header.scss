@@ -1,5 +1,9 @@
 .header {
   background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 15;
+
   ul {
     list-style: none;
   }
@@ -7,10 +11,6 @@
   [aria-current] {
     font-weight: 700;
   }
-
-  position: sticky;
-  top: 0;
-  z-index: 15;
 
   &__nav {
     display: flex;

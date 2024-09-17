@@ -1,10 +1,12 @@
 {
     "/assets/js/index.js": "/assets/js/index.js",
-    "/css-blocks/science-tnl.css": "/css-blocks/science-tnl.css",
-    "/css-blocks/health-goal-tnl.css": "/css-blocks/health-goal-tnl.css",
+    "/css-blocks/goals-qa-tnl.css": "/css-blocks/goals-qa-tnl.css",
+    "/css-blocks/goal-help-tnl.css": "/css-blocks/goal-help-tnl.css",
     "/css-blocks/difference-tnl.css": "/css-blocks/difference-tnl.css",
     "/css-blocks/consultation-tnl.css": "/css-blocks/consultation-tnl.css",
     "/css-blocks/banner-tnl.css": "/css-blocks/banner-tnl.css",
     "/src/index.css": "/src/index.css",
-    "/css-blocks/symptoms-tnl.css": "/css-blocks/symptoms-tnl.css"
+    "/css-blocks/symptoms-tnl.css": "/css-blocks/symptoms-tnl.css",
+    "/css-blocks/science-tnl.css": "/css-blocks/science-tnl.css",
+    "/css-blocks/health-goal-tnl.css": "/css-blocks/health-goal-tnl.css"
 }

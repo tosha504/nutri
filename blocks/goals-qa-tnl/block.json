@@ -1,0 +1,44 @@
+{
+  "name": "acf/goals-qa-tnl",
+  "title": "Goals q&a",
+  "description": "A custom goals-qa block.",
+  "style": [
+    "file:../../css-blocks/goals-qa-tnl.css"
+  ],
+  "category": "custom-layout-category",
+  "icon": "admin-site",
+  "keywords": [
+    "about",
+    "quote"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "goals-qa-tnl.php"
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "layout": {
+      "type": "object",
+      "default": {
+        "type": "constrained"
+      }
+    },
+    "alignText": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "lineHeight": true,
+      "fontSize": true
+    },
+    "fullHeight": true
+  }
+}
