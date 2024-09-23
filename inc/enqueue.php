@@ -18,6 +18,8 @@ if (!function_exists('start_scripts')) {
 		wp_enqueue_script('slick_theme_functions', ['jquery'], 1.0, true);
 		wp_enqueue_script('start_functions', $theme_uri . '/src/index.js', ['jquery'], 1.0, true);
 
+
+
 		wp_localize_script('start_functions', 'localizedObject', [
 			'ajaxurl' => admin_url('admin-ajax.php'),
 			'nonce' => wp_create_nonce('ajax_nonce'),
@@ -25,6 +27,7 @@ if (!function_exists('start_scripts')) {
 
 		// Custom css
 		wp_enqueue_style('external-url-fonts', 'https://use.typekit.net/rzw3kqz.css');
+		wp_enqueue_style('slick-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css', false);
 		wp_enqueue_style('google-font-playfair', 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap', false);
 		wp_enqueue_style('start_style', $theme_uri . '/src/index.css', [], 1.0);
 
@@ -37,7 +40,7 @@ add_action('wp_enqueue_scripts', 'start_scripts',);
 
 // Add preload links for enqueued styles
 add_filter('style_loader_tag', function ($html, $handle, $href, $media) {
-	if (in_array($handle, ['external-url-fonts', 'google-font-playfair', 'start_style'])) {
+	if (in_array($handle, ['external-url-fonts', 'google-font-playfair'])) {
 		return '<link rel="preload" href="' . esc_url($href) . '" as="style" onload="this.rel=\'stylesheet\'">' . "\n";
 	}
 	return $html;

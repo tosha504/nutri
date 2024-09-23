@@ -22,6 +22,45 @@ jQuery(window).load(function () {
     nav.toggleClass("active");
     body.toggleClass("fixed-page");
   });
+  jQuery('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    asNavFor: '.slider-nav',
+    // Sync with the thumbnail slider
+    infinite: false
+  });
+
+  // Initialize the thumbnail slider
+  jQuery('.slider-nav').slick({
+    slidesToShow: 2,
+    // Number of thumbnails visible
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    // Sync with the main slider
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true,
+    infinite: false
+  });
+
+  // jQuery('.slider-for').slick({
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  //   // fade: true,
+  //   asNavFor: '.woocommerce-product-gallery__wrapper'
+  // });
+  // jQuery('.woocommerce-product-gallery__wrapper').slick({
+  //   slidesToShow: 2,
+  //   slidesToScroll: 1,
+  //   asNavFor: '.slider-for',
+  //   dots: true,
+  //   centerMode: true,
+  //   focusOnSelect: true
+  // });
+
   setTimeout(function () {
     if (getCookie('popupCookie') != 'submited') {
       jQuery('.cookies').css("display", "block").hide().fadeIn(2000);
@@ -57,6 +96,12 @@ jQuery(window).load(function () {
   }
 })(jQuery);
 window.addEventListener("load", function (event) {
+  jQuery('.goals-qa-tnl__left_wrap-links a').on("click", function (e) {
+    var target = jQuery(this).attr("href");
+    jQuery("html, body").animate({
+      scrollTop: jQuery(target).offset().top - jQuery('header').height()
+    }, 200);
+  });
   if (window.innerWidth < 769) {}
   // Observe object for changes in blocks (if you are tracking changes in some state)
   var blockState = {
@@ -99,7 +144,7 @@ window.addEventListener("load", function (event) {
     var foundBlock = null;
     blocks.forEach(function (block) {
       var rect = block.getBoundingClientRect();
-      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      if (rect.top >= 0 && rect.bottom - 260 <= window.innerHeight) {
         foundBlock = block;
       }
     });
