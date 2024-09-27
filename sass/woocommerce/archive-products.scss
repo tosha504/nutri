@@ -1,0 +1,31 @@
+body {
+  &.post-type-archive-product,
+  &.tax-product_cat {
+    .products-wrap-tnl {
+      padding: 20px 0;
+
+      &,
+      .shop-tnl {
+        display: flex;
+      }
+
+      .custom-sidebar-shop {
+        flex: 0 1 350px;
+
+        ul {
+          list-style: none;
+        }
+      }
+
+      .shop-tnl {
+        list-style: none;
+        align-items: center;
+        gap: 40px;
+
+        li {
+          flex: 0 1 calc((100% / 3) - 40px);
+        }
+      }
+    }
+  }
+}

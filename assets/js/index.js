@@ -7,10 +7,6 @@
   \**********************/
 /***/ (() => {
 
-jQuery(window).load(function () {
-  // When the page has loaded
-  jQuery("body").fadeIn(2000);
-});
 (function () {
   console.log('ready');
   var burger = jQuery(".burger"),
@@ -22,27 +18,70 @@ jQuery(window).load(function () {
     nav.toggleClass("active");
     body.toggleClass("fixed-page");
   });
-  jQuery('.slider-for').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    fade: true,
-    asNavFor: '.slider-nav',
-    // Sync with the thumbnail slider
-    infinite: false
-  });
 
-  // Initialize the thumbnail slider
-  jQuery('.slider-nav').slick({
-    slidesToShow: 2,
-    // Number of thumbnails visible
-    slidesToScroll: 1,
-    asNavFor: '.slider-for',
-    // Sync with the main slider
-    dots: false,
-    centerMode: false,
-    focusOnSelect: true,
-    infinite: false
+  // jQuery('.slider-for').slick({
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: true,
+  //   fade: true,
+  //   asNavFor: '.slider-nav', // Sync with the thumbnail slider
+  //   infinite: false,
+  //   fade: true
+  // });
+
+  jQuery('.slider-for img').on('click', function name() {
+    changeImage(jQuery(this).attr('src'));
+  });
+  function changeImage(imageSrc) {
+    console.log(jQuery('#mainImage').attr('src'));
+    jQuery('#mainImage').attr('src', imageSrc);
+    jQuery('#mainImage').attr('srcset', imageSrc);
+
+    // Optionally, you can reset sizes attribute if needed
+    jQuery('#mainImage').attr('sizes', '(max-width: 128px) 100vw, 128px');
+  }
+  // // Initialize the thumbnail slider
+  // jQuery('.slider-for').slick({
+  //   slidesToShow: 3, // Number of thumbnails visible
+  //   slidesToScroll: 1,
+  //   dots: false,
+  //   arrows: false,
+  //   centerMode: false,
+  //   focusOnSelect: true,
+  //   infinite: false,
+  //   vertical: true, // Makes the slider vertical
+  //   verticalSwiping: true
+  // });
+
+  // // Initialize the thumbnail slider
+  // jQuery('.slider-nav').slick({
+  //   slidesToShow: 3, // Number of thumbnails visible
+  //   slidesToScroll: 1,
+  //   asNavFor: '.slider-for', // Sync with the main slider
+  //   dots: false,
+  //   arrows: false,
+  //   centerMode: false,
+  //   focusOnSelect: true,
+  //   infinite: false,
+  //   vertical: true, // Makes the slider vertical
+  //   verticalSwiping: true
+  // });
+
+  jQuery(window).on("load", function () {
+    jQuery('.flex-control-nav').slick({
+      slidesToShow: 3,
+      // Number of thumbnails visible
+      slidesToScroll: 1,
+      // asNavFor: '.slider-for', // Sync with the main slider
+      dots: false,
+      arrows: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: false,
+      vertical: true,
+      // Makes the slider vertical
+      verticalSwiping: true
+    });
   });
 
   // jQuery('.slider-for').slick({

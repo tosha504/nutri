@@ -274,3 +274,19 @@ function fix_svg_thumb_display()
 		}
 	</style>';
 }
+add_action('widgets_init', 'register_my_widgets');
+function register_my_widgets()
+{
+
+	register_sidebar([
+		'name' => 'The left sidebar of the shop',
+		'id' => 'left-sidebar',
+		'description' => 'These widgets will be shown in the left column of the site',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>'
+	]);
+}
+// Disables the block editor from managing widgets in the Gutenberg plugin.
+// add_filter('gutenberg_use_widgets_block_editor', '__return_false');
+// // Disables the block editor from managing widgets.
+// add_filter('use_widgets_block_editor', '__return_false');

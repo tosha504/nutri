@@ -37,35 +37,22 @@ $wrapper_classes = apply_filters(
     'woocommerce-product-gallery--columns-' . absint($columns),
     'images',
   )
-);
-?>
-<div class="<?php echo esc_attr(implode(' ', array_map('sanitize_html_class', $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
+); ?>
+<div class="jopa">
   <div class="slider-for">
     <?php
-    if ($post_thumbnail_id) {
-      echo wc_get_gallery_image_html($post_thumbnail_id, true);
-    }
 
     if ($attachment_ids && $product->get_image_id()) {
       foreach ($attachment_ids as $attachment_id) {
-        echo wc_get_gallery_image_html($attachment_id, true);
+        echo wp_get_attachment_image($attachment_id, true,);
       }
     }
     ?>
+
   </div>
-
-  <div class="slider-nav">
-    <?php
-    // Main product image thumbnail
-    if ($post_thumbnail_id) {
-      echo wc_get_gallery_image_html($post_thumbnail_id, true);
-    }
-
-    // Thumbnails for other gallery images
-    if ($attachment_ids && $product->get_image_id()) {
-      foreach ($attachment_ids as $attachment_id) {
-        echo wc_get_gallery_image_html($attachment_id, true);
-      }
+  <div class="some-main">
+    <?php if ($post_thumbnail_id) {
+      echo wp_get_attachment_image($post_thumbnail_id, false, false, array('id' => 'mainImage'));
     }
     ?>
   </div>

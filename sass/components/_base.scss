@@ -88,6 +88,10 @@ a:hover {
   transition: 0.25s;
 }
 
+a {
+  color: var(--black);
+}
+
 button,
 button:active,
 button:focus,
