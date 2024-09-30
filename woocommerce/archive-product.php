@@ -31,7 +31,6 @@ do_action('woocommerce_before_main_content');
 
 ?>
 <div class="container">
-  privet
   <?php
   /**
    * Hook: woocommerce_shop_loop_header.

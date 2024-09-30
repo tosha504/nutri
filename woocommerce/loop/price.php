@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Loop Price
  *
@@ -15,13 +16,19 @@
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
-?>
+$product_claim = !empty(get_field('product_claim')) ? '<p class="product_claim">' . get_field('product_claim') . '</p>' : '';
+$descr_after_descr =  !empty(get_field('descr_after_descr')) ? '<p>' . get_field('descr_after_descr') . '</p>' : '';
+echo  $descr_after_descr;
 
-<?php if ( $price_html = $product->get_price_html() ) : ?>
-	<span class="price"><?php echo $price_html; ?></span>
+?>
+<?php if ($price_html = $product->get_price_html()) : ?>
+	<div class="product__wrap-body_price">
+		<?php echo $product_claim; ?>
+		<span class="price"><?php echo $price_html; ?></span>
+	</div>
 <?php endif; ?>

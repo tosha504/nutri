@@ -1,6 +1,7 @@
 body {
   &.post-type-archive-product,
-  &.tax-product_cat {
+  &.tax-product_cat,
+  &.tax-product_tag {
     .products-wrap-tnl {
       padding: 20px 0;
 
@@ -10,7 +11,13 @@ body {
       }
 
       .custom-sidebar-shop {
-        flex: 0 1 350px;
+        flex: 0 1 300px;
+        font-size: 14px;
+        font-weight: 400;
+
+        &__title {
+          margin-bottom: 20px;
+        }
 
         ul {
           list-style: none;
@@ -19,11 +26,63 @@ body {
 
       .shop-tnl {
         list-style: none;
-        align-items: center;
+        // align-items: center;
         gap: 40px;
 
+        > li {
+          &.product {
+            max-width: 350px;
+          }
+          flex: 1 1 calc((100% / 3) - 40px);
+        }
+      }
+    }
+
+    .woocommerce-pagination {
+      display: flex;
+      .page-numbers {
+        list-style: none;
+        margin: 0 auto;
+        gap: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding-inline: 5px;
+        min-width: 34px;
+        height: 34px;
+        color: var(--color-gray-900);
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: calc(var(--wd-brd-radius) / 1.5);
+        transition: all 0.2s ease;
+
         li {
-          flex: 0 1 calc((100% / 3) - 40px);
+          span {
+            &.current {
+              border-radius: 50px;
+              color: #fff;
+              background-color: var(--primary-theme);
+            }
+          }
+
+          a {
+            border-radius: 50px;
+            @media (hover: hover) {
+              &:hover {
+                color: #fff;
+                background-color: var(--primary-theme);
+              }
+            }
+          }
+
+          &:is(.next, .prev) {
+            font-size: 0;
+            &:before {
+              font-size: 12px;
+              content: "\f113";
+              font-family: "woodmart-font";
+            }
+          }
         }
       }
     }
