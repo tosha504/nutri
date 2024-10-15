@@ -38,21 +38,29 @@ $wrapper_classes = apply_filters(
     'images',
   )
 ); ?>
-<div class="jopa">
-  <div class="slider-for">
+<div class="slider-product-wrap">
+
+  <?php if ($attachment_ids && $product->get_image_id()) { ?>
+    <div class="slider-product-wrap__slider">
+      <div class="image-slider">
+        <?php
+        foreach ($attachment_ids as $attachment_id) {
+          echo '<div>';
+          echo wp_get_attachment_image($attachment_id, 'full');
+          echo '</div>';
+        }
+        ?>
+      </div>
+      <button class="prev-btn">&#9650;</button> <!-- Up arrow button -->
+
+      <button class="next-btn">&#9660;</button> <!-- Down arrow button -->
+    </div>
+  <?php } ?>
+
+  <div class="slider-product-wrap__show">
     <?php
-
-    if ($attachment_ids && $product->get_image_id()) {
-      foreach ($attachment_ids as $attachment_id) {
-        echo wp_get_attachment_image($attachment_id, true,);
-      }
-    }
-    ?>
-
-  </div>
-  <div class="some-main">
-    <?php if ($post_thumbnail_id) {
-      echo wp_get_attachment_image($post_thumbnail_id, false, false, array('id' => 'mainImage'));
+    if ($attachment_ids) {
+      echo wp_get_attachment_image($attachment_ids[0], 'full', false, array('id' => 'mainImage'));
     }
     ?>
   </div>

@@ -22,3 +22,4 @@ if (! defined('ABSPATH')) {
 
 ?>
 <ul class="products shop-tnl">
+	<?php do_action('custom_dno');

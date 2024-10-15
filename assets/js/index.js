@@ -18,18 +18,7 @@
     nav.toggleClass("active");
     body.toggleClass("fixed-page");
   });
-
-  // jQuery('.slider-for').slick({
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   arrows: true,
-  //   fade: true,
-  //   asNavFor: '.slider-nav', // Sync with the thumbnail slider
-  //   infinite: false,
-  //   fade: true
-  // });
-
-  jQuery('.slider-for img').on('click', function name() {
+  jQuery('.slider-product-wrap__slider img').on('click', function name() {
     changeImage(jQuery(this).attr('src'));
   });
   function changeImage(imageSrc) {
@@ -40,33 +29,6 @@
     // Optionally, you can reset sizes attribute if needed
     jQuery('#mainImage').attr('sizes', '(max-width: 128px) 100vw, 128px');
   }
-  // // Initialize the thumbnail slider
-  // jQuery('.slider-for').slick({
-  //   slidesToShow: 3, // Number of thumbnails visible
-  //   slidesToScroll: 1,
-  //   dots: false,
-  //   arrows: false,
-  //   centerMode: false,
-  //   focusOnSelect: true,
-  //   infinite: false,
-  //   vertical: true, // Makes the slider vertical
-  //   verticalSwiping: true
-  // });
-
-  // // Initialize the thumbnail slider
-  // jQuery('.slider-nav').slick({
-  //   slidesToShow: 3, // Number of thumbnails visible
-  //   slidesToScroll: 1,
-  //   asNavFor: '.slider-for', // Sync with the main slider
-  //   dots: false,
-  //   arrows: false,
-  //   centerMode: false,
-  //   focusOnSelect: true,
-  //   infinite: false,
-  //   vertical: true, // Makes the slider vertical
-  //   verticalSwiping: true
-  // });
-
   jQuery(window).on("load", function () {
     jQuery('.flex-control-nav').slick({
       slidesToShow: 3,
@@ -84,22 +46,68 @@
     });
   });
 
-  // jQuery('.slider-for').slick({
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   arrows: false,
-  //   // fade: true,
-  //   asNavFor: '.woocommerce-product-gallery__wrapper'
-  // });
-  // jQuery('.woocommerce-product-gallery__wrapper').slick({
-  //   slidesToShow: 2,
-  //   slidesToScroll: 1,
-  //   asNavFor: '.slider-for',
-  //   dots: true,
-  //   centerMode: true,
-  //   focusOnSelect: true
-  // });
+  //single-page woo
+  jQuery(document).on("click", '.cart-qty.plus, .cart-qty.minus', function (e) {
+    e.preventDefault();
+    var input = jQuery(this).parent().find('.input-text.qty.text');
+    var input_val = parseInt(input.val());
+    if (jQuery(this).hasClass('plus')) {
+      input.val(input_val + 1);
+      input.attr('value', input_val + 1);
+    } else {
+      var new_val = input_val - 1;
+      if (new_val > 0) {
+        input.val(input_val - 1);
+        input.attr('value', input_val - 1);
+      }
+    }
+    input.trigger("change");
+  });
+  var timeout;
+  jQuery('.woocommerce').on('change', 'input.qty', function () {
+    console.log(timeout);
+    if (timeout !== undefined) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function () {
+      jQuery('.cart-qty.plus, .minus').attr('disabled', true); // trigger cart update
+    }, 100); // 1 second delay, half a second (500) seems comfortable too
+    // jQuery(document.body).trigger('wc_fragment_refresh');
+    setTimeout(function () {
+      jQuery(document.body).trigger('wc_fragment_refresh'); // Refresh the cart fragments
+    }, 1000);
+  });
 
+  // if (jQuery('.summary.entry-summary').length > 0) {
+
+  //   console.log(jQuery('header').height(), jQuery('.summary.entry-summary'))
+  //   jQuery('.summary.entry-summary').css({
+  //     'position': 'sticky', 'top': jQuery('header').height() + 15
+  //   })
+
+  // }
+
+  jQuery('.up-sells.upsells .products').slick({
+    slidesToShow: 3,
+    // Number of thumbnails visible
+    slidesToScroll: 1,
+    // asNavFor: '.slider-for', // Sync with the main slider
+    dots: false,
+    arrows: false,
+    centerMode: false,
+    focusOnSelect: true,
+    infinite: false
+  });
+  if (jQuery('.cross-sells .products li').length > 2) {
+    // jQuery('.cross-sells .products').slick({
+    //   slidesToShow: 3,
+    //   slidesToScroll: 1,
+    //   dots: true,
+    //   arrows: false,
+    //   infinite: false,
+    //   swipe: true,
+    // })
+  }
   setTimeout(function () {
     if (getCookie('popupCookie') != 'submited') {
       jQuery('.cookies').css("display", "block").hide().fadeIn(2000);
@@ -135,6 +143,65 @@
   }
 })(jQuery);
 window.addEventListener("load", function (event) {
+  // const slider = document.querySelector('.image-slider');
+  // const images = slider.querySelectorAll('img');
+  // const prevBtn = document.querySelector('.prev-btn');
+  // const nextBtn = document.querySelector('.next-btn');
+
+  // let currentIndex = 0;
+  // let visibleImages = getVisibleImages();
+  // let imageHeight = getImageHeight();
+
+  // // Function to get the number of visible images based on the current screen size
+  // function getVisibleImages() {
+  //   if (window.innerWidth >= 1440) {
+  //     return 5; // Show 5 images on xxl screens
+  //   } else if (window.innerWidth >= 992) {
+  //     return 4; // Show 4 images on lg screens
+  //   } else if (window.innerWidth >= 768) {
+  //     return 3; // Show 3 images on md screens
+  //   } else {
+  //     return 2; // Show 2 images on mobile screens
+  //   }
+  // }
+
+  // // Function to get the height of each image based on the current visible images
+  // function getImageHeight() {
+  //   const sliderTotalHeight = 500; // Total height of the slider
+  //   return sliderTotalHeight / visibleImages;
+  // }
+
+  // // Function to update the slider position (scroll to the correct image)
+  // function updateSliderPosition() {
+  //   slider.scrollTo({
+  //     top: imageHeight * currentIndex,
+  //     behavior: 'smooth',
+  //   });
+  // }
+
+  // // Next button click: Move to the next image
+  // nextBtn.addEventListener('click', () => {
+  //   if (currentIndex < images.length - visibleImages) {
+  //     currentIndex++;
+  //     updateSliderPosition();
+  //   }
+  // });
+
+  // // Previous button click: Move to the previous image
+  // prevBtn.addEventListener('click', () => {
+  //   if (currentIndex > 0) {
+  //     currentIndex--;
+  //     updateSliderPosition();
+  //   }
+  // });
+
+  // // Resize event listener: Update the image height and visible images on window resize
+  // window.addEventListener('resize', () => {
+  //   visibleImages = getVisibleImages();
+  //   imageHeight = getImageHeight();
+  //   updateSliderPosition(); // Ensure the slider remains correctly positioned after resize
+  // });
+
   jQuery('.goals-qa-tnl__left_wrap-links a').on("click", function (e) {
     var target = jQuery(this).attr("href");
     jQuery("html, body").animate({

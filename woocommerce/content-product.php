@@ -28,27 +28,24 @@ if (empty($product) || ! $product->is_visible()) {
 <li <?php wc_product_class('', $product); ?>>
   <?php
   $current_id_product = $product->id;
+  $product_extra_label_top = !empty(get_field('product_extra_label_top')) ? '<p class="extra_label">' . get_field('product_extra_label_top') . '</p>'  : '';
 
-
-  $product_extra_label_top = get_field('product_extra_label_top');
-  // var_dump($product_extra_label_top);
   /**
    * Hook: woocommerce_before_shop_loop_item.
    *
    * @hooked woocommerce_template_loop_product_link_open - 10
    */
-  do_action('woocommerce_before_shop_loop_item');
-  ?>
+  do_action('woocommerce_before_shop_loop_item'); ?>
   <div class="product__wrap-image">
     <?php
+    echo  $product_extra_label_top;
     /**
      * Hook: woocommerce_before_shop_loop_item_title.
      *
      * @hooked woocommerce_show_product_loop_sale_flash - 10
      * @hooked woocommerce_template_loop_product_thumbnail - 10
      */
-    do_action('woocommerce_before_shop_loop_item_title');
-    ?>
+    do_action('woocommerce_before_shop_loop_item_title'); ?>
   </div>
   <div class="product__wrap-body">
     <?php

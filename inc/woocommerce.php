@@ -57,8 +57,10 @@ add_action('woocommerce_before_shop_loop', function () { ?>
       <?php dynamic_sidebar('left-sidebar'); ?>
     </ul>
   </aside>
-<?php
+  <?php
 }, 40);
+
+// add_action('custom_dno', 'woocommerce_breadcrumb', 10);
 
 // Function to display product tags on the shop page
 function display_product_tags_on_shop_page()
@@ -93,7 +95,33 @@ add_action('woocommerce_after_shop_loop_item_title', 'display_product_tags_on_sh
 
 
 // remove
-remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
+
+
+// remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+// add_action('woocommerce_before_main_content', function () {
+//   echo '<div class="container">';
+// }, 19);
+// add_action('woocommerce_before_main_content', function () {
+//   echo '</div >';
+// }, 21);
+
+
+
+add_action('woocommerce_before_cart', function () {
+  echo '<div class="container">';
+}, 9);
+add_action('woocommerce_before_cart', function () {
+  echo '</div >';
+}, 11);
+
+add_action('woocommerce_cart_is_empty', function () {
+  echo '<div class="container">';
+}, 1);
+add_action('woocommerce_cart_is_empty', function () {
+  echo '</div >';
+}, 11);
+
 
 //content-product
 function custom_display_star_rating($product_id)
@@ -120,4 +148,173 @@ function custom_display_star_rating($product_id)
   }
 
   echo '</div>';
+}
+
+
+//SINGLE-PAGE
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+
+add_action('woocommerce_single_product_summary', 'display_product_tags_on_shop_page', 5);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 15);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 25);
+add_action('woocommerce_single_product_summary', 'product_feature', 28);
+add_action('woocommerce_single_product_summary', 'delivery_tnl_single_product', 32);
+
+function product_feature()
+{
+  $product_feature = get_field('product_feature', get_the_ID());
+  if (!empty($product_feature) && count($product_feature) > 0) { ?>
+    <div class="product-feature">
+      <?php foreach ($product_feature as $key => $feature) { ?>
+        <div class="product-feature__item">
+          <?php echo wp_get_attachment_image($feature['icon'], 'full'); ?>
+          <p><?php echo $feature['name']; ?></p>
+        </div>
+      <?php } ?>
+    </div>
+  <?php }
+}
+
+function delivery_tnl_single_product()
+{
+  $delivery = get_field('delivery', get_the_ID());
+  if (!empty($delivery) && count($delivery) > 0) { ?>
+    <div class="product-delivery">
+      <?php foreach ($delivery as $key => $delivery_item) { ?>
+        <div class="product-delivery__item">
+          <?php echo wp_get_attachment_image($delivery_item['icon'], 'full'); ?>
+          <p><?php echo $delivery_item['descr']; ?></p>
+        </div>
+      <?php } ?>
+    </div>
+  <?php }
+}
+
+//archive-page
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+add_action('woocommerce_shop_loop_header', function () {
+  $banner_image = !empty(get_field('banner_image', 'options')) ? 'background-image:url(' . wp_get_attachment_url(get_field('banner_image', 'options')) . ')' : 'background:red;';
+  $descr = !empty(get_field('descr', 'options')) ? '<p class="shop-banner-tnl__descr">' . get_field('descr', 'options') . '</p>' : ''; ?>
+  <div class="shop-banner-tnl">
+    <div class="container" style="<?php echo $banner_image; ?>">
+      <?php echo '<h1>' . get_the_archive_title() . '</h1>';
+      echo $descr ?>
+    </div>
+
+  </div>
+<?php
+}, 11);
+
+add_action('woocommerce_shop_loop_header', function () {
+?>
+  <div class="container">
+    <h2>Wszystkie produkty</h2>
+  </div>
+  <?php
+}, 15);
+
+
+//quantity field
+add_action('woocommerce_before_quantity_input_field', function () {
+  echo '<button class="cart-qty minus">-</button>';
+});
+
+add_action('woocommerce_after_quantity_input_field', function () {
+  echo '<button class="cart-qty plus">+</button>';
+});
+
+//CART
+// remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
+// add_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 15);
+remove_action('woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10);
+add_action('woocommerce_before_cart_collaterals', 'woocommerce_cart_totals');
+
+
+// CHECKOUT
+// Display cross-sell products on checkout page
+add_action('woocommerce_checkout_after_order_review', 'add_cross_sells_to_checkout');
+
+function add_cross_sells_to_checkout()
+{
+  // Get the current cart cross-sells
+  $cross_sells = WC()->cart->get_cross_sells();
+
+  if (empty($cross_sells)) {
+    return; // Exit if no cross-sell products found
+  }
+
+  // Set up the query arguments
+  $args = array(
+    'post_type' => 'product',
+    'posts_per_page' => 4, // Limit the number of cross-sells displayed
+    'post__in' => $cross_sells,
+    'orderby' => 'rand' // Randomize the display of products
+  );
+
+  // Get the cross-sell products
+  $products = new WP_Query($args);
+
+  if ($products->have_posts()) {
+    echo '<div class="cross-sell-products">';
+    echo '<h3>' . __('You may also like...', 'woocommerce') . '</h3>';
+    echo '<ul class="products shop-tnl">';
+
+    while ($products->have_posts()) {
+      $products->the_post();
+      wc_get_template_part('content', 'product');
+    }
+
+    echo '</ul>';
+    echo '</div>';
+  }
+
+  // Reset post data
+  wp_reset_postdata();
+}
+
+remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+// remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
+add_action('custom_payment_position', 'woocommerce_checkout_payment', 20);
+
+add_action('woocommerce_before_checkout_form', function () {
+  echo '<div class="container">';
+}, 1);
+
+add_action('woocommerce_after_checkout_form', function () {
+  echo '</div>';
+}, 1);
+
+
+
+add_action('wp_footer', 'cart_update_qty_script');
+function cart_update_qty_script()
+{
+  if (is_checkout()) :
+  ?>
+    <script>
+      let timeout;
+      jQuery('.checkout.woocommerce-checkout').on('change', 'input.qty', function() {
+        if (timeout !== undefined) {
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(function() {
+          jQuery('.cart-qty.plus, .minus').attr('disabled', true) // trigger cart update
+
+
+
+        }, 100); // 1 second delay, half a second (500) seems comfortable too
+        // jQuery(document.body).trigger('wc_fragment_refresh');
+        setTimeout(function() {
+          jQuery(document.body).trigger('wc_fragment_refresh'); // Refresh the cart fragments
+
+        }, 1000);
+      });
+    </script>
+<?php
+  endif;
 }

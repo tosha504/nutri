@@ -1,0 +1,29 @@
+.shop-tnl {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .woocommerce-breadcrumb {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  > li {
+    flex: 1 1 100%;
+
+    &.product {
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        max-width: 350px;
+      }
+    }
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex: 0 1 calc((100% / 2) - 20px);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      flex: 0 1 calc((100% / 3) - 20px);
+    }
+  }
+}

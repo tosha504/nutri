@@ -1,0 +1,48 @@
+.benefits_of_use {
+  padding: 25px 0;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    padding: 50px 0;
+  }
+  .title-tnl {
+    text-align: center;
+  }
+
+  &__items {
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 15px;
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      gap: 30px;
+    }
+    &,
+    .item {
+      display: flex;
+    }
+
+    .item {
+      align-items: flex-start;
+      font-size: 14px;
+      gap: 20px;
+      flex: 1 1 100%;
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        flex: 1 1 calc((100% / 2) - 30px);
+      }
+      &__img {
+        flex: 1 1 100%;
+        display: flex;
+        max-width: 108px;
+        img {
+          object-fit: contain;
+        }
+      }
+
+      &__content {
+        &_title {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

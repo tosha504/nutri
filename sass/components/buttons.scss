@@ -35,6 +35,12 @@
     border: 1px solid var(--black);
     background-color: var(--black);
     color: var(--white);
+
+    &.added {
+      background-color: var(--primary-theme);
+      border: 1px solid var(--primary-theme);
+    }
+
     @media (hover: hover) {
       &:hover {
         background-color: transparent;

@@ -67,6 +67,7 @@
   float: left;
   height: inherit;
   min-height: 1px;
+  display: none;
 
   [dir="rtl"] & {
     float: right;
@@ -81,8 +82,6 @@
   &.slick-loading img {
     display: none;
   }
-
-  display: none;
 
   &.dragging img {
     pointer-events: none;
