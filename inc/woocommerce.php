@@ -215,7 +215,7 @@ add_action('woocommerce_shop_loop_header', function () {
   <div class="container">
     <h2>Wszystkie produkty</h2>
   </div>
-  <?php
+<?php
 }, 15);
 
 
@@ -237,13 +237,12 @@ add_action('woocommerce_before_cart_collaterals', 'woocommerce_cart_totals');
 
 // CHECKOUT
 // Display cross-sell products on checkout page
-add_action('woocommerce_checkout_after_order_review', 'add_cross_sells_to_checkout');
+add_action('woocommerce_checkout_order_review', 'add_cross_sells_to_checkout');
 
 function add_cross_sells_to_checkout()
 {
   // Get the current cart cross-sells
   $cross_sells = WC()->cart->get_cross_sells();
-
   if (empty($cross_sells)) {
     return; // Exit if no cross-sell products found
   }
@@ -251,7 +250,7 @@ function add_cross_sells_to_checkout()
   // Set up the query arguments
   $args = array(
     'post_type' => 'product',
-    'posts_per_page' => 4, // Limit the number of cross-sells displayed
+    'posts_per_page' => 3, // Limit the number of cross-sells displayed
     'post__in' => $cross_sells,
     'orderby' => 'rand' // Randomize the display of products
   );
@@ -289,32 +288,28 @@ add_action('woocommerce_after_checkout_form', function () {
   echo '</div>';
 }, 1);
 
+add_filter('woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 
-
-add_action('wp_footer', 'cart_update_qty_script');
-function cart_update_qty_script()
+function woocommerce_header_add_to_cart_fragment($fragments)
 {
-  if (is_checkout()) :
-  ?>
-    <script>
-      let timeout;
-      jQuery('.checkout.woocommerce-checkout').on('change', 'input.qty', function() {
-        if (timeout !== undefined) {
-          clearTimeout(timeout);
-        }
-        timeout = setTimeout(function() {
-          jQuery('.cart-qty.plus, .minus').attr('disabled', true) // trigger cart update
+  global $woocommerce;
 
-
-
-        }, 100); // 1 second delay, half a second (500) seems comfortable too
-        // jQuery(document.body).trigger('wc_fragment_refresh');
-        setTimeout(function() {
-          jQuery(document.body).trigger('wc_fragment_refresh'); // Refresh the cart fragments
-
-        }, 1000);
-      });
-    </script>
+  ob_start(); ?>
+  <a href="<?php echo wc_get_cart_url(); ?>">
+    <span class="count">
+      <?php echo sprintf($woocommerce->cart->cart_contents_count); ?>
+    </span></a>
 <?php
-  endif;
+  $fragments['li.cart-header a'] = ob_get_clean();
+  ob_start();
+
+  return $fragments;
+}
+
+
+add_filter('woocommerce_cross_sells_total', 'bbloomer_change_cross_sells_product_no');
+
+function bbloomer_change_cross_sells_product_no($columns)
+{
+  return 3;
 }

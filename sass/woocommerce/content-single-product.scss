@@ -36,9 +36,12 @@ body {
 }
 
 .up-sells {
-  li {
-    &:not(:last-child) {
-      margin-right: 40px;
+  > h2 {
+    margin-bottom: 20px;
+  }
+  .products {
+    > .product {
+      flex: 1 1 calc((100% / 4) - 20px);
     }
   }
 }
