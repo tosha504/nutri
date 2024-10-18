@@ -52,7 +52,7 @@ add_action('woocommerce_after_shop_loop',  function () {
 
 add_action('woocommerce_before_shop_loop', function () { ?>
   <aside class="custom-sidebar-shop">
-    <p class="custom-sidebar-shop__title"><?php _e('FILTRY', 'hashimoto'); ?></p>
+    <!-- <p class="custom-sidebar-shop__title"><?php _e('FILTRY', 'hashimoto'); ?></p> -->
     <ul>
       <?php dynamic_sidebar('left-sidebar'); ?>
     </ul>

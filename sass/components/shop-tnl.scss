@@ -3,7 +3,7 @@
   list-style: none;
   flex-wrap: wrap;
   gap: 20px;
-
+  flex: 1 1 100%;
   .woocommerce-breadcrumb {
     flex: 1 1 100%;
     margin-bottom: 20px;
@@ -23,7 +23,7 @@
     }
 
     @media (min-width: map-get($grid-breakpoints, lg)) {
-      flex: 0 1 calc((100% / 3) - 20px);
+      flex: 0 1 calc((100% / 4) - 20px);
     }
   }
 }

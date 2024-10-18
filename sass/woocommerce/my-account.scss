@@ -141,22 +141,63 @@ body {
               display: flex;
               flex-wrap: wrap;
               gap: 20px;
-              // flex-direction: column;
+              flex-direction: column;
               thead,
               tbody {
                 tr {
                   display: flex;
-                  flex-direction: column;
-                  background-color: red;
+                  border-bottom: 1px solid var(--black);
+                  padding-bottom: 10px;
+                  @media (max-width: map-get($grid-breakpoints, md)) {
+                    flex-direction: column;
+                  }
+                  th,
+                  td {
+                    flex: 0 1 25%;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 10px;
+                    text-align: start;
+                    @media (max-width: map-get($grid-breakpoints, md)) {
+                      &::before {
+                        content: attr(data-title);
+                        float: left;
+                        padding-top: 3px;
+                        color: var(--brdcolor-gray-900);
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        font-size: 12px;
+                        margin-right: auto;
+                      }
+                    }
+                  }
 
-                  th {
-                    flex: 1 1 20%;
+                  td {
+                    font-size: 14px;
+                    @media (max-width: map-get($grid-breakpoints, md)) {
+                      padding: 5px;
+                    }
+                    .woocommerce-Price-amount {
+                      margin-right: 10px;
+                    }
+
+                    .button {
+                      padding: 0;
+                      justify-content: end;
+                      @media (min-width: map-get($grid-breakpoints, md)) {
+                        justify-content: start;
+                      }
+                    }
                   }
                 }
               }
 
               thead {
                 flex: 1 1 calc(10% - 20px);
+                @media (max-width: map-get($grid-breakpoints, md)) {
+                  display: none;
+                }
               }
 
               tbody {

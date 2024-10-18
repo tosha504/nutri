@@ -53,6 +53,19 @@
 
 			<div class="header__bottom">
 				<div class="container">
+					<?php
+					$logo = get_field('logo', 'options');
+					if (!empty($logo)) { ?>
+						<div class="header__logo">
+							<a href="<?php echo esc_url(home_url('/')) ?>">
+								<?php
+								echo wp_get_attachment_image($logo, 'full');
+								?>
+							</a>
+						</div>
+					<?php } ?>
+
+
 					<nav id="site-navigation" class="main-navigation">
 						<?php
 						wp_nav_menu(
@@ -66,17 +79,7 @@
 						?>
 					</nav><!-- #site-navigation -->
 
-					<?php
-					$logo = get_field('logo', 'options');
-					if (!empty($logo)) { ?>
-						<div class="header__logo">
-							<a href="<?php echo esc_url(home_url('/')) ?>">
-								<?php
-								echo wp_get_attachment_image($logo, 'full');
-								?>
-							</a>
-						</div>
-					<?php } ?>
+
 
 					<nav id="menu-right-header" class="right-navigation">
 						<?php

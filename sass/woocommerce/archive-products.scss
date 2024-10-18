@@ -5,35 +5,37 @@ body {
     .products-wrap-tnl {
       padding: 20px 0;
       display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
 
       .custom-sidebar-shop {
-        display: none;
-        @media (min-width: map-get($grid-breakpoints, lg)) {
-          display: block;
-          flex: 0 1 250px;
-          font-size: 14px;
-          font-weight: 400;
-          margin-right: 100px;
+        // display: none;
+        flex: 1 1 100%;
+        .widget_product_categories {
+          list-style: none;
 
-          &__title {
-            margin-bottom: 20px;
-          }
-
-          ul {
+          .product-categories {
             list-style: none;
-          }
-        }
+            display: flex;
+            gap: 10px;
+            border-radius: 20px;
+            font-size: 14px;
 
-        .product-categories {
-          li {
-            &.current-cat {
-              display: inline-block;
-              font-weight: 700;
-              border-bottom: 1px solid var(--black);
-            }
-
-            &:not(:last-child) {
-              margin-bottom: 10px;
+            li {
+              font-size: 12px;
+              padding: 5px 2em;
+              border: 1px solid var(--black);
+              border-radius: 50px;
+              font-weight: 400;
+              &.current-cat {
+                display: inline-block;
+                font-weight: 700;
+                background: var(--black);
+                border: 1px solid var(--black);
+                a {
+                  color: var(--white);
+                }
+              }
             }
           }
         }

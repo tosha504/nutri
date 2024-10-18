@@ -24,18 +24,20 @@ $Understand_your_symptoms  = get_field('Understand_your_symptoms'); ?>
 		<a href="#" class="arrow-down"></a>
 	</section><!-- goal-post-banner end -->
 	<!-- current-symptoms start -->
-	<section class="current-symptoms">
-		<div class="current-symptoms__left"><?php echo my_custom_attachment_image($iamge); ?></div>
-		<div class="current-symptoms__right">
-			<h2 class="title-tnl">Twoje <span>obecne objawy</span></h2>
-			<div class="current-symptoms__right_symptoms">
-				<?php
-				foreach ($symptoms as $key => $symptom) { ?>
-					<p><?php echo $symptom; ?></p>
-				<?php } ?>
+	<?php if (!empty($symptoms) && count($symptoms) > 0) { ?>
+		<section class="current-symptoms">
+			<div class="current-symptoms__left"><?php echo my_custom_attachment_image($iamge); ?></div>
+			<div class="current-symptoms__right">
+				<h2 class="title-tnl">Twoje <span>obecne objawy</span></h2>
+				<div class="current-symptoms__right_symptoms">
+
+					<?php foreach ($symptoms as $key => $symptom) { ?>
+						<p><?php echo $symptom; ?></p>
+					<?php } ?>
+				</div>
 			</div>
-		</div>
-	</section><!-- current-symptoms start -->
+		</section><!-- current-symptoms start -->
+	<?php } ?>
 	<!-- Understand_your_symptoms start -->
 	<div class="container your-symptoms">
 		<?php echo $Understand_your_symptoms; ?>

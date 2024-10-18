@@ -75,9 +75,9 @@ body {
     max-width: 1200px;
   }
 
-  @media (min-width: map-get($grid-breakpoints, xxl)) {
-    max-width: 1400px;
-  }
+  // @media (min-width: map-get($grid-breakpoints, xxl)) {
+  //   max-width: 1400px;
+  // }
 }
 
 a,

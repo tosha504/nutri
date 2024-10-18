@@ -21,7 +21,7 @@
     background-size: cover;
 
     @media (min-width: map-get($grid-breakpoints, lg)) {
-      min-height: 525px;
+      min-height: 405px;
     }
 
     &_content {

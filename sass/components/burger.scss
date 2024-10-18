@@ -6,6 +6,10 @@
   cursor: pointer;
   z-index: 6;
 
+  @media (max-width: map-get($grid-breakpoints, xl)) {
+    display: inline-block;
+  }
+
   span {
     display: none;
     width: 40px;
@@ -31,9 +35,5 @@
     @media (max-width: map-get($grid-breakpoints, xl)) {
       display: block;
     }
-  }
-
-  @media (max-width: map-get($grid-breakpoints, xl)) {
-    display: inline-block;
   }
 }
