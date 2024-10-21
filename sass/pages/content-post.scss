@@ -1,0 +1,42 @@
+body {
+  &.single-post {
+    .banner-tnl {
+      flex-direction: row-reverse;
+      h1 {
+        font-size: clamp(25px, 3vw, 35px);
+        margin: 100px 0;
+      }
+
+      &__right {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+
+      &__left {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        color: var(--black);
+        padding: 100px;
+
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          border-bottom-right-radius: 15px;
+        }
+      }
+
+      .post-autor-data {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a {
+          font-weight: 700;
+          border-bottom: 1px solid var(--black);
+        }
+      }
+    }
+  }
+}

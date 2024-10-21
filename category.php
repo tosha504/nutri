@@ -16,7 +16,7 @@ get_header(); ?>
 
   if (!empty($cusstom_title) || !empty($descr_posts)) { ?>
     <!-- blog-banner start -->
-    <section class="blog-banner" style="background-image: url(<?php echo wp_get_attachment_image_url($image_banner) ?>);">
+    <section class="blog-banner" style="background-image: url(<?php echo wp_get_attachment_image_url($image_banner, 'full') ?>);">
       <div class="blog-banner__wrap">
         <h1 class="title-tnl"><?php echo $cusstom_title; ?></h1>
         <?php echo $descr_posts; ?>
@@ -69,17 +69,23 @@ get_header(); ?>
           $trim_words = 20;
           $excerpt = wp_trim_words(get_the_excerpt(), $trim_words); ?>
           <li class="blog-posts__items_item item">
-            <a href="<?php echo get_permalink(); ?>">
-              <?php echo get_the_post_thumbnail(); ?>
-              <div class="item__metadata">
-                <p class="<?php echo get_the_category()[0]->name; ?>"> <?php echo get_the_category()[0]->name; ?></p>
+            <div class="item__image">
+              <a href="<?php echo get_permalink(); ?>">
+                <?php echo get_the_post_thumbnail(); ?>
+              </a>
+            </div>
+            <div class="item__metadata">
+              <a href="<?php echo get_category_link(get_the_category()[0]->term_id); ?>" class="<?php echo get_the_category()[0]->name; ?>"> <?php echo get_the_category()[0]->name; ?></a>
+              <a href="<?php echo get_the_author_link(); ?>"> <?php echo get_the_author(); ?></a>
 
-              </div>
-              <div class="item__wrap">
+            </div>
+            <div class="item__wrap">
+              <a href="<?php echo get_permalink(); ?>">
                 <h5><?php echo  get_the_title(); ?></h5>
-                <p class="descr"><?php echo $excerpt; ?></p>
-              </div>
-            </a>
+              </a>
+              <p class="descr"><?php echo $excerpt; ?></p>
+            </div>
+
           </li>
       <?php
         endwhile;
@@ -87,7 +93,24 @@ get_header(); ?>
         get_template_part('template-parts/content', 'none');
       endif; ?>
       </ul>
+      <!-- Pagination Start -->
+      <?php
+      // Check if there's more than one page
+      if ($total_pages > 1) {
+        echo '<nav class="pagination" role="navigation" aria-label="Pagination Navigation">';
 
+        // Display pagination links
+        the_posts_pagination(array(
+          'mid_size'  => 2, // Number of pages to show on either side of the current page
+          'prev_text' => '«',
+          'next_text' => '»',
+          'screen_reader_text' => __('Posts navigation'),
+        ));
+
+        echo '</nav>';
+      }
+      ?>
+      <!-- Pagination End -->
   </div>
 
 </main><!-- #main -->

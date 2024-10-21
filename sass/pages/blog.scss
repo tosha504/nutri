@@ -1,6 +1,7 @@
 body {
   &.blog,
-  &.archive.category {
+  &.archive.category,
+  &.author {
     .blog-banner {
       display: flex;
       flex-direction: column;

@@ -47,6 +47,8 @@ get_header(); ?>
         }
 
         echo '</ul>';
+      } else {
+        echo '<p>No categories found.</p>';
       }
       ?>
 
@@ -69,16 +71,13 @@ get_header(); ?>
           <li class="blog-posts__items_item item">
             <div class="item__image">
               <a href="<?php echo get_permalink(); ?>">
-                <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'post-thumbnails');
-                //get_the_post_thumbnail();
-                ?>
+                <?php echo get_the_post_thumbnail(); ?>
               </a>
             </div>
             <div class="item__metadata">
               <a href="<?php echo get_category_link(get_the_category()[0]->term_id); ?>" class="<?php echo get_the_category()[0]->name; ?>"> <?php echo get_the_category()[0]->name; ?></a>
-              <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
-                <?php echo get_the_author(); ?>
-              </a>
+              <a href="<?php echo get_the_author_link(); ?>"> <?php echo get_the_author(); ?></a>
+
             </div>
             <div class="item__wrap">
               <a href="<?php echo get_permalink(); ?>">
@@ -94,24 +93,7 @@ get_header(); ?>
         get_template_part('template-parts/content', 'none');
       endif; ?>
       </ul>
-      <!-- Pagination Start -->
-      <?php
-      // Check if there's more than one page
-      if ($total_pages > 1) {
-        echo '<nav class="pagination" role="navigation" aria-label="Pagination Navigation">';
 
-        // Display pagination links
-        the_posts_pagination(array(
-          'mid_size'  => 2, // Number of pages to show on either side of the current page
-          'prev_text' => '«',
-          'next_text' => '»',
-          'screen_reader_text' => __('Posts navigation'),
-        ));
-
-        echo '</nav>';
-      }
-      ?>
-      <!-- Pagination End -->
   </div>
 
 </main><!-- #main -->

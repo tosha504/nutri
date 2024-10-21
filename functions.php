@@ -286,3 +286,7 @@ function register_my_widgets()
 		'after_title' => '</h2>'
 	]);
 }
+
+
+add_theme_support('post-thumbnails');
+set_post_thumbnail_size(640, 400, true);
