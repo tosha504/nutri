@@ -25,6 +25,10 @@ body {
         @media (min-width: map-get($grid-breakpoints, md)) {
           border-bottom-right-radius: 15px;
         }
+
+        .art-cat {
+          display: inline-flex;
+        }
       }
 
       .post-autor-data {
@@ -32,10 +36,36 @@ body {
         align-items: center;
         gap: 20px;
 
+        img {
+          background-color: var(--white);
+          border: 1px solid var(--black);
+          border-radius: 50%;
+          padding: 10px;
+        }
+
         a {
           font-weight: 700;
           border-bottom: 1px solid var(--black);
         }
+      }
+    }
+    .entry-content {
+      max-width: 811px;
+      margin: 0 auto;
+      > p,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      blockquote {
+        padding: 25px 0;
+        // &:not(:first-child) {
+        //   background-color: green;
+        // }
+        // &:not(:last-child) {
+        //   background-color: red;
+        // }
       }
     }
   }

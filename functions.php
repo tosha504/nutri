@@ -288,5 +288,14 @@ function register_my_widgets()
 }
 
 
-add_theme_support('post-thumbnails');
-set_post_thumbnail_size(640, 400, true);
+add_image_size('homepage-thumb', 640, 400, true);
+
+
+function customize_homepage_main_query($query)
+{
+	// Ensure we're modifying the main query on the home page in the frontend
+	if ($query->is_home() && $query->is_main_query() && ! is_admin()) {
+		$query->set('category__not_in', [91]);
+	}
+}
+add_action('pre_get_posts', 'customize_homepage_main_query');

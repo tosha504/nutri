@@ -1,0 +1,36 @@
+.art-cat {
+  text-transform: uppercase;
+  font-size: 12px;
+  border-radius: 50px;
+  padding: 0 15px;
+  &.diagnoza {
+    color: #ff0606;
+    border: 1px solid #ff0606;
+  }
+
+  &.suplementacja {
+    border: 1px solid #7b61ff;
+    color: #7b61ff;
+  }
+
+  &.tarczyca {
+    color: #000;
+    border: 1px solid #000;
+  }
+  &.dieta-przy-chorobie-hashimoto {
+    color: #1cab93;
+    border: 1px solid #1cab93;
+  }
+  &.aktywnosc {
+    color: #1cab93;
+    border: 1px solid #1cab93;
+  }
+  &.dietetyk-radzi {
+    color: #64b3c9;
+    border: 1px solid #64b3c9;
+  }
+  &.hashi-notka {
+    color: #ff8a00;
+    border: 1px solid #ff8a00;
+  }
+}

@@ -53,3 +53,43 @@ add_filter('get_the_archive_title', function ($title) {
 
   return $title;
 });
+
+
+//show category on archive page POST
+function get_category_display()
+{
+  $args = array(
+    'orderby'    => 'name',
+    'order'      => 'ASC',
+    'hide_empty' => false, // Set to true to hide categories without posts
+  );
+
+  // Retrieve categories
+  $categories = get_categories($args);
+
+  // Get the current category if on a category archive page
+  $current_category = is_category() ? get_queried_object() : null;
+
+  // Check if categories exist
+  if (! empty($categories)) {
+    echo '<ul class="custom-category-list">';
+    foreach ($categories as $category) {
+      if ($category->slug !== 'przepisy') {
+        // Get the category link
+        $category_link = get_category_link($category->term_id);
+
+        // Determine if this category is the current category
+        $active_class = '';
+        if ($current_category && $category->term_id === $current_category->term_id) {
+          $active_class = ' current-category';
+        }
+
+        // Output each category as a list item, adding the active class if applicable
+        echo '<li class="' . esc_attr(trim($active_class)) . '">';
+        echo '<a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>';
+        echo '</li>';
+      }
+    }
+    echo '</ul>';
+  }
+}

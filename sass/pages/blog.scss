@@ -60,9 +60,16 @@ body {
           text-transform: uppercase;
           border-radius: 50px;
           padding: 0 15px;
+
           a {
-            color: var((--white));
+            color: var(--white);
             font-size: 14px;
+          }
+          &.current-category {
+            border: 1px solid var(--primary-theme);
+            a {
+              color: var(--primary-theme);
+            }
           }
         }
       }
@@ -106,7 +113,6 @@ body {
 
           &__image {
             overflow: hidden;
-            flex: 1 1 100%;
             &,
             a {
               display: flex;
@@ -115,11 +121,20 @@ body {
             img {
               transition: 0.35s;
             }
+            a {
+              flex: 1 1 100%;
+            }
           }
 
           &__metadata {
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+
+            a:not(:first-child) {
+              color: var(--tag-grey);
+            }
           }
 
           &__wrap {
@@ -129,6 +144,21 @@ body {
             .descr {
               font-size: 14px;
               line-height: 1.1;
+              padding-right: 40px;
+              position: relative;
+
+              &::after {
+                content: "";
+                width: 100%;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background: url(../assets/icons/arrows/arrow-blog-arch-page.png)
+                  no-repeat center/cover;
+                max-width: 30px;
+                height: 30px;
+                display: block;
+              }
             }
           }
         }

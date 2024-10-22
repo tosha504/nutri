@@ -15,7 +15,7 @@
 	<section class="banner-tnl">
 		<div class="banner-tnl__left" style="background-color: <?php echo '#FAEFE6'; ?>;">
 			<div class="container">
-				<?php echo get_the_category()[0]->name; ?>
+				<p class="art-cat <?php echo get_the_category()[0]->slug; ?>"> <?php echo get_the_category()[0]->name; ?> </p>
 				<h1><?php echo get_the_title(); ?></h1>
 				<div class="post-autor-data">
 					<?php
