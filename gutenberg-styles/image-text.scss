@@ -1,0 +1,48 @@
+@use "../sass/components/_breakpoints" as b;
+
+.image-text-section {
+  padding: 0;
+
+  .image-text {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    @media (min-width: map-get(b.$grid-breakpoints, md)) {
+      gap: 0;
+    }
+    .image-img-tnl,
+    .content-of-tnl {
+      flex: 1 1 100%;
+      @media (min-width: map-get(b.$grid-breakpoints, md)) {
+        flex: 1 1 50%;
+      }
+    }
+
+    .image-img-tnl {
+      display: flex;
+    }
+
+    .content-of-tnl {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+      p,
+      li,
+      a {
+        font-size: 14px;
+      }
+
+      li {
+        margin-left: 20px;
+      }
+      @media (min-width: map-get(b.$grid-breakpoints, md)) {
+        padding: 0 45px;
+      }
+      @media (min-width: map-get(b.$grid-breakpoints, xl)) {
+        padding: 0 70px;
+      }
+    }
+  }
+}

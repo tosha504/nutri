@@ -1,0 +1,44 @@
+{
+  "name": "acf/image-text",
+  "title": "image-text",
+  "description": "A custom image-text block.",
+  "style": [
+    "file:../../css-blocks/image-text.css"
+  ],
+  "category": "custom-layout-category",
+  "icon": "admin-site",
+  "keywords": [
+    "about",
+    "quote"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "image-text.php"
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "layout": {
+      "type": "object",
+      "default": {
+        "type": "constrained"
+      }
+    },
+    "alignText": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "lineHeight": true,
+      "fontSize": true
+    },
+    "fullHeight": true
+  }
+}

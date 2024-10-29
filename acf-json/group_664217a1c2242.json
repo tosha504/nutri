@@ -83,6 +83,13 @@
                 "operator": "==",
                 "value": "acf\/goal-help-tnl"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/title-and-descr"
+            }
         ]
     ],
     "menu_order": 0,
@@ -94,5 +101,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1726573705
+    "modified": 1730205424
 }
