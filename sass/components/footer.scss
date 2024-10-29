@@ -73,19 +73,27 @@
   &__info {
     display: flex;
     gap: 20px;
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      flex-wrap: wrap;
+    }
+
     &_create {
       flex: 1 1 100%;
     }
 
     &_copyright,
     &_icons {
-      flex: 1 1 calc((100% / 2) - 20px);
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        flex: 1 1 calc((100% / 2) - 20px);
+      }
     }
 
     &_icons {
       display: flex;
       gap: 5px;
-      justify-content: flex-end;
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        justify-content: flex-end;
+      }
     }
   }
 }

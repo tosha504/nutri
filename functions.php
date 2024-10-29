@@ -299,3 +299,87 @@ function customize_homepage_main_query($query)
 	}
 }
 add_action('pre_get_posts', 'customize_homepage_main_query');
+
+// functions.php or include a separate file for the walker class
+
+class WP_Bootstrap_Mega_Menu_Walker extends Walker_Nav_Menu
+{
+
+	// Start Level
+	function start_lvl(&$output, $depth = 0, $args = array())
+	{
+
+		$indent = str_repeat("\t", $depth);
+		$submenu = ($depth > 0) ? ' sub-menu' : ' mega-menu-dropdown';
+		$output .= "\n$indent<ul class=\"dropdown-menu$submenu depth_$depth\">\n";
+	}
+
+	// Start Element
+	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+	{
+		$indent = ($depth) ? str_repeat("\t", $depth) : '';
+		$li_attributes = '';
+		$classes = empty($item->classes) ? array() : (array) $item->classes;
+		// echo "<pre>";
+		// var_dump($item);
+		// echo "</pre>";
+		// Check if the item has children
+		$has_children = in_array('menu-item-has-children', $classes);
+
+		$classes[] = 'menu-item-' . $item->ID;
+		if ($has_children) {
+			$classes[] = 'dropdown';
+		}
+
+		$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+		$class_names = ' class="' . esc_attr($class_names) . '"';
+
+		$id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args);
+		$id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $class_names . $li_attributes . '>';
+
+		$atts = array();
+		$atts['title']  = ! empty($item->attr_title) ? $item->attr_title : '';
+		$atts['target'] = ! empty($item->target)     ? $item->target     : '';
+		$atts['rel']    = ! empty($item->xfn)        ? $item->xfn        : '';
+		$atts['href']   = ! empty($item->url)        ? $item->url        : '';
+
+		if ($has_children && $depth === 0) {
+			$atts['class']       = 'dropdown-toggle';
+			$atts['data-toggle'] = 'dropdown';
+			$atts['aria-haspopup'] = 'true';
+			$atts['aria-expanded'] = 'false';
+		}
+
+		$atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
+
+		$attributes = '';
+		foreach ($atts as $attr => $value) {
+			if (! empty($value)) {
+				$value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+
+		$title = apply_filters('the_title', $item->title, $item->ID);
+		$title = apply_filters('nav_menu_item_title', $title, $item, $args);
+
+		$item_output = $args->before;
+		$item_output .= '<a' . $attributes . '>';
+		$item_output .= $args->link_before . $title . $args->link_after;
+		if ($has_children && $depth === 0) {
+			$item_output .= ' <span class="caret"></span>';
+		}
+		$item_output .= '</a>';
+		$item_output .= $args->after;
+
+		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+	}
+
+	// End Element
+	function end_el(&$output, $item, $depth = 0, $args = array())
+	{
+		$output .= "</li>\n";
+	}
+}

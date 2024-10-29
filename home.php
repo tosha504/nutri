@@ -18,7 +18,7 @@ get_header(); ?>
     <!-- blog-banner start -->
     <section class="blog-banner" style="background-image: url(<?php echo wp_get_attachment_image_url($image_banner, 'full') ?>);">
       <div class="blog-banner__wrap">
-        <h1 class="title-tnl"><?php echo $cusstom_title; ?></h1>
+        <h1><?php echo $cusstom_title; ?></h1>
         <?php echo $descr_posts; ?>
 
       </div>

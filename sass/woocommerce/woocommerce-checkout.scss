@@ -343,6 +343,8 @@ body {
                 }
                 .products {
                   .product {
+                    flex: 1 1 100%;
+                    max-width: calc(50% - 20px);
                     .product_claim {
                       display: none;
                     }

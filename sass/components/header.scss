@@ -19,6 +19,34 @@
     @media (min-width: map-get($grid-breakpoints, md)) {
       gap: 30px;
     }
+
+    .primary {
+      border-radius: 50px;
+      font-weight: 900;
+      font-size: 14px;
+      text-transform: uppercase;
+      padding: 5px 20px;
+      background-color: var(--primary-theme);
+      border: 1px solid var(--primary-theme);
+      transition: 0.25s;
+      @media (min-width: map-get($grid-breakpoints, xl)) {
+        display: none;
+      }
+
+      a {
+        color: var(--white);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: transparent;
+          cursor: pointer;
+          a {
+            color: var(--primary-theme);
+          }
+        }
+      }
+    }
   }
 
   a {
@@ -83,7 +111,7 @@
     .container {
       display: flex;
       align-items: center;
-
+      position: relative;
       .main-navigation {
         margin: 0 auto;
       }
@@ -98,10 +126,14 @@
           font-weight: 900;
           font-size: 14px;
           text-transform: uppercase;
-          padding: 12px 23px;
+          padding: 5px 20px;
           background-color: var(--primary-theme);
           border: 1px solid var(--primary-theme);
           transition: 0.25s;
+
+          @media (max-width: map-get($grid-breakpoints, xl)) {
+            display: none;
+          }
 
           a {
             color: var(--white);
@@ -177,13 +209,56 @@
       font-size: 13px;
       font-weight: 400;
     }
+
+    > .menu-item-has-children {
+      background-color: fuchsia;
+
+      > .dropdown-menu {
+        padding: 20px;
+        position: absolute;
+        background-color: grey;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        top: 100%;
+        left: 0;
+
+        .sub-menu {
+          $max-depth: 10;
+          @for $i from 0 through $max-depth {
+            &.depth_#{$i} {
+              // display: none;
+              // position: absolute;
+              // left: 300px;
+              // z-index: 2;
+            }
+          }
+        }
+        .dropdown {
+          background-color: red;
+          display: inline-flex;
+          flex-direction: column;
+          position: relative;
+          max-width: 300px;
+          @media (hover: hover) {
+            &:hover {
+              background-color: green;
+              .sub-menu.depth_1 {
+                display: flex;
+                background-color: pink;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   //__mobile
   &__nav {
     @media (max-width: map-get($grid-breakpoints, xl)) {
       padding: 50px;
-      // background-color: $primaryTheme;
+      background-color: var(--white);
       position: fixed;
       left: -100%;
       top: 0;
