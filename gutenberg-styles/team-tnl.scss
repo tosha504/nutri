@@ -1,0 +1,46 @@
+@use "../sass/components/_breakpoints" as b;
+
+.team-tnl {
+  background-color: #faefe6;
+  .title-tnl {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__autors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    &_item {
+      flex: 1 1 calc((100% / 2) - 10px);
+      max-width: calc((100% / 2) - 10px);
+      text-align: center;
+
+      @media (min-width: map-get(b.$grid-breakpoints, md)) {
+        flex: 1 1 calc((100% / 4) - 10px);
+        max-width: calc((100% / 4) - 10px);
+      }
+
+      @media (min-width: map-get(b.$grid-breakpoints, lg)) {
+        flex: 1 1 calc((100% / 5) - 10px);
+        max-width: calc((100% / 5) - 10px);
+      }
+
+      img {
+        background-color: var(--white);
+        border: 1px solid var(--black);
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-weight: 900;
+        a {
+          color: #686868;
+        }
+      }
+    }
+  }
+}

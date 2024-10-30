@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title And Descr TNL Block template.
+ * Two Col Img TNL Block template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -18,11 +18,20 @@ $anchor = '';
 if (!empty($block['anchor'])) {
   $anchor = 'id="' . esc_attr($block['anchor']) . '" ';
 }
-$content = get_field('content'); ?>
-<!-- title-and-descr start -->
-<section class="title-and-descr">
+$left = get_field('left');
+$right = get_field('right');
+$image = get_field('image'); ?>
+<!-- two-col-img start -->
+<section class="two-col-img">
   <div class="container">
-    <?php echo $content; ?>
+    <div class="two-col-img__left">
+      <?php echo $left; ?>
+    </div>
+    <div class="two-col-img__right">
+      <?php echo $right; ?>
+    </div>
+    <div class="two-col-img__image">
+      <?php echo wp_get_attachment_image($image, 'full'); ?>
+    </div>
   </div>
-</section>
-<!-- title-and-descr end -->
+</section><!-- two-col-img end -->

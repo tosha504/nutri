@@ -1,0 +1,5 @@
+@use "../sass/components/_breakpoints" as b;
+.title-and-descr {
+  max-width: 1000px;
+  margin: 0 auto;
+}

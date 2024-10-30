@@ -90,6 +90,13 @@
                 "operator": "==",
                 "value": "acf\/title-and-descr"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/team-tnl"
+            }
         ]
     ],
     "menu_order": 0,
@@ -101,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730205424
+    "modified": 1730282745
 }

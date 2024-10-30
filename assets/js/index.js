@@ -307,6 +307,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./gutenberg-styles/team-tnl.scss":
+/*!****************************************!*\
+  !*** ./gutenberg-styles/team-tnl.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/title-and-descr.scss":
+/*!***********************************************!*\
+  !*** ./gutenberg-styles/title-and-descr.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/two-col-img.scss":
+/*!*******************************************!*\
+  !*** ./gutenberg-styles/two-col-img.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./sass/index.scss":
 /*!*************************!*\
   !*** ./sass/index.scss ***!
@@ -478,6 +517,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"css-blocks/banner-tnl": 0,
 /******/ 			"css-blocks/banner-calc-tnl": 0,
 /******/ 			"src/index": 0,
+/******/ 			"css-blocks/two-col-img": 0,
+/******/ 			"css-blocks/title-and-descr": 0,
+/******/ 			"css-blocks/team-tnl": 0,
 /******/ 			"css-blocks/symptoms-tnl": 0,
 /******/ 			"css-blocks/science-tnl": 0,
 /******/ 			"css-blocks/image-text": 0,
@@ -532,18 +574,21 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./src/index.js")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/banner-calc-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/banner-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/consultation-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/difference-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/goal-help-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/goals-qa-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/health-goal-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/image-text.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/science-tnl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/symptoms-tnl.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./sass/index.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./src/index.js")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/banner-calc-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/banner-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/consultation-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/difference-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/goal-help-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/goals-qa-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/health-goal-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/image-text.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/science-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/symptoms-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/team-tnl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/title-and-descr.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./gutenberg-styles/two-col-img.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css-blocks/goal-help-tnl","css-blocks/difference-tnl","css-blocks/consultation-tnl","css-blocks/banner-tnl","css-blocks/banner-calc-tnl","src/index","css-blocks/two-col-img","css-blocks/title-and-descr","css-blocks/team-tnl","css-blocks/symptoms-tnl","css-blocks/science-tnl","css-blocks/image-text","css-blocks/health-goal-tnl","css-blocks/goals-qa-tnl"], () => (__webpack_require__("./sass/index.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
