@@ -29,6 +29,18 @@
   }
 
   jQuery(window).on("load", function () {
+    jQuery('.slider-product-wrap__slider').slick({
+      slidesToShow: 4, // Number of thumbnails visible
+      slidesToScroll: 1,
+      // asNavFor: '.slider-for', // Sync with the main slider
+      dots: false,
+      arrows: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: false,
+      vertical: true, // Makes the slider vertical
+      verticalSwiping: true
+    });
 
     jQuery('.flex-control-nav').slick({
       slidesToShow: 3, // Number of thumbnails visible

@@ -42,18 +42,15 @@ $wrapper_classes = apply_filters(
 
   <?php if ($attachment_ids && $product->get_image_id()) { ?>
     <div class="slider-product-wrap__slider">
-      <div class="image-slider">
-        <?php
-        foreach ($attachment_ids as $attachment_id) {
-          echo '<div>';
-          echo wp_get_attachment_image($attachment_id, 'full');
-          echo '</div>';
-        }
-        ?>
-      </div>
-      <button class="prev-btn">&#9650;</button> <!-- Up arrow button -->
-
-      <button class="next-btn">&#9660;</button> <!-- Down arrow button -->
+      <!-- <div class="image-slider"> -->
+      <?php
+      foreach ($attachment_ids as $attachment_id) {
+        echo '<div>';
+        echo wp_get_attachment_image($attachment_id, 'full');
+        echo '</div>';
+      }
+      ?>
+      <!-- </div> -->
     </div>
   <?php } ?>
 
