@@ -15,9 +15,11 @@ if (!empty(get_sub_field('anchor'))) {
 }
 
 $content_of = get_sub_field('content_of');
-$color = get_sub_field('color');
+$color = !empty(get_sub_field('color')) ? "style='background: " . get_sub_field('color') . "'" : "";
 if (!empty($content_of)) { ?>
-  <div class="content-of-tnl" <?php echo $anchor; ?>>
+  <div class="content-of-tnl"
+    <?php echo $anchor;
+    echo $color; ?>>
     <?php echo $content_of; ?>
   </div>
 <?php  }
