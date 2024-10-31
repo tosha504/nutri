@@ -6,30 +6,43 @@ body {
     }
     .product-top-data {
       display: flex;
-      gap: 50px;
       flex-wrap: wrap;
-      //   // @media (min-width: map-get($grid-breakpoints, md)) {
-      //   //   flex-wrap: nowrap;
-      //   // }
+      gap: 20px;
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        gap: 0 50px;
+      }
 
       //   .woocommerce-product-gallery__wrapper {
       //     max-width: 50%;
       //   }
-      //   .summary {
-      //   }
 
       .slider-product-wrap,
-      .summary,
-      .product-tabs-tnl {
+      .summary {
         flex: 1 1 100%;
         width: 50%;
+        // @media (min-width: map-get($grid-breakpoints, md)) {
+        //   flex: 0 1 calc(50% - 50px);
+        // }
+      }
+
+      .slider-product-wrap {
         @media (min-width: map-get($grid-breakpoints, md)) {
-          flex: 0 1 calc(50% - 50px);
+          max-width: calc(55% - 50px);
+        }
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+          flex: 0 1 calc(55% - 50px);
+          position: sticky;
+          height: 100%;
         }
       }
 
-      .product-tabs-tnl {
-        order: 3;
+      .summary {
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          max-width: calc(45% - 50px);
+        }
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+          flex: 0 1 calc(45% - 50px);
+        }
       }
     }
   }

@@ -29,20 +29,50 @@
     // Optionally, you can reset sizes attribute if needed
     jQuery('#mainImage').attr('sizes', '(max-width: 128px) 100vw, 128px');
   }
+  jQuery('.slider-product-wrap__show').slick({
+    slidesToShow: 1,
+    // Number of thumbnails visible
+    slidesToScroll: 1,
+    asNavFor: '.slider-product-wrap__slider',
+    // Sync with the main slider
+    dots: false,
+    arrows: true,
+    centerMode: false,
+    focusOnSelect: true,
+    infinite: false
+  });
   jQuery(window).on("load", function () {
     jQuery('.slider-product-wrap__slider').slick({
       slidesToShow: 4,
       // Number of thumbnails visible
       slidesToScroll: 1,
-      // asNavFor: '.slider-for', // Sync with the main slider
+      asNavFor: '.slider-product-wrap__show',
       dots: false,
       arrows: false,
       centerMode: false,
       focusOnSelect: true,
       infinite: false,
       vertical: true,
-      // Makes the slider vertical
-      verticalSwiping: true
+      verticalSwiping: true,
+      responsive: [{
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots: true,
+          vertical: false,
+          verticalSwiping: false
+        }
+      }, {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: true,
+          vertical: false,
+          verticalSwiping: false
+        }
+      }]
     });
     jQuery('.flex-control-nav').slick({
       slidesToShow: 3,
@@ -195,7 +225,13 @@ window.addEventListener("load", function (event) {
   //   imageHeight = getImageHeight();
   //   updateSliderPosition(); // Ensure the slider remains correctly positioned after resize
   // });
-
+  jQuery(window).scroll(function () {
+    if (jQuery('.slider-product-wrap')) {
+      jQuery('.slider-product-wrap').css({
+        'top': "".concat(document.querySelector(".header").clientHeight + 20, "px")
+      });
+    }
+  });
   jQuery('.goals-qa-tnl__left_wrap-links a').on("click", function (e) {
     var target = jQuery(this).attr("href");
     jQuery("html, body").animate({

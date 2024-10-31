@@ -39,10 +39,21 @@ $wrapper_classes = apply_filters(
   )
 ); ?>
 <div class="slider-product-wrap">
+  <div class="slider-product-wrap__show">
+    <?php
+    // if ($attachment_ids) {
+    //   echo wp_get_attachment_image($attachment_ids[0], 'full', false, array('id' => 'mainImage'));
+    // }
+    foreach ($attachment_ids as $attachment_id) {
+      echo '<div>';
+      echo wp_get_attachment_image($attachment_id, 'full');
+      echo '</div>';
+    }
+    ?>
+  </div>
 
   <?php if ($attachment_ids && $product->get_image_id()) { ?>
     <div class="slider-product-wrap__slider">
-      <!-- <div class="image-slider"> -->
       <?php
       foreach ($attachment_ids as $attachment_id) {
         echo '<div>';
@@ -50,15 +61,8 @@ $wrapper_classes = apply_filters(
         echo '</div>';
       }
       ?>
-      <!-- </div> -->
     </div>
   <?php } ?>
 
-  <div class="slider-product-wrap__show">
-    <?php
-    if ($attachment_ids) {
-      echo wp_get_attachment_image($attachment_ids[0], 'full', false, array('id' => 'mainImage'));
-    }
-    ?>
-  </div>
+
 </div>

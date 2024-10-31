@@ -91,13 +91,9 @@ add_action('woocommerce_after_shop_loop_item_title', function () {
 }, 6);
 
 
-add_action('woocommerce_after_shop_loop_item_title', 'display_product_tags_on_shop_page', 15);
-
+add_action('woocommerce_after_shop_loop_item', 'display_product_tags_on_shop_page', 11);
 
 // remove
-
-
-
 // remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 // add_action('woocommerce_before_main_content', function () {
 //   echo '<div class="container">';
@@ -105,8 +101,6 @@ add_action('woocommerce_after_shop_loop_item_title', 'display_product_tags_on_sh
 // add_action('woocommerce_before_main_content', function () {
 //   echo '</div >';
 // }, 21);
-
-
 
 add_action('woocommerce_before_cart', function () {
   echo '<div class="container">';

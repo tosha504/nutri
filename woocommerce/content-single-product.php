@@ -63,24 +63,7 @@ if (post_password_required()) {
         $tabs_items[] = $information_leaflet;
       }
 
-      // Check if $tabs_items is not empty
-      if (!empty($tabs_items)) { ?>
-        <ul class="product-tabs-tnl">
-          <?php foreach ($tabs_items as $key => $val) { ?>
-            <li>
-              <div class="question">
-                <p><?php echo $val['question_title']; ?></p>
-                <button aria-label="Toggle Accordion Content">
-                  <div></div>
-                </button>
-              </div>
-              <div class="answer">
-                <?php echo $val['answer']; ?>
-              </div>
-            </li>
-          <?php } ?>
-        </ul>
-      <?php } ?>
+      ?>
 
       <script>
         jQuery(document).on('click', '.question', function(e) {
@@ -115,6 +98,25 @@ if (post_password_required()) {
     </div>
 
     <?php
+    // Check if $tabs_items is not empty
+    if (!empty($tabs_items)) { ?>
+      <ul class="product-tabs-tnl">
+        <?php foreach ($tabs_items as $key => $val) { ?>
+          <li>
+            <div class="question">
+              <p><?php echo $val['question_title']; ?></p>
+              <button aria-label="Toggle Accordion Content">
+                <div></div>
+              </button>
+            </div>
+            <div class="answer">
+              <?php echo $val['answer']; ?>
+            </div>
+          </li>
+        <?php } ?>
+      </ul>
+    <?php }
+
     if (have_rows('additional_info')) { ?>
       <div class="product-add-info">
         <?php while (have_rows('additional_info')) {

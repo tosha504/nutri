@@ -42,6 +42,46 @@ body {
       }
     }
 
+    .product {
+      &__wrap-body {
+        &_tags {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+
+          li {
+            flex: 1 1 100%;
+            font-size: 12px;
+            padding: 0;
+            border: none;
+            border-radius: 0px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            a {
+              flex: 1 1 100%;
+              color: var(--black);
+              &.woocommerce-LoopProduct-link {
+                display: none;
+              }
+            }
+
+            &::before {
+              content: "";
+              background: url(../assets/icons/chevron.svg) no-repeat center /
+                cover;
+              display: block;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+
     .woocommerce-pagination {
       display: flex;
       .page-numbers {

@@ -1,7 +1,7 @@
 .product {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  // gap: 10px;
   a {
     width: 100%;
     &:first-child {
@@ -16,16 +16,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 
     .extra_label {
-      background-color: var(--white);
-      padding: 15px 20px;
-      font-size: 15px;
+      background-color: var(--primary-theme);
+      padding: 5px 10px;
+      font-size: 13px;
+      border-radius: 50px;
+      font-weight: 700;
+      color: var(--white);
       position: absolute;
-      font-weight: 500;
-      top: 0;
-      left: 0;
+      top: 15px;
+      left: 15px;
       text-transform: uppercase;
     }
 
@@ -34,20 +37,22 @@
       width: 100%;
     }
   }
+  .add_to_cart_button {
+    margin: 10px 0;
+  }
 
   &__wrap-body {
     flex: 1 1 100%;
     display: flex;
-    gap: 10px;
+
     flex-direction: column;
+    background-color: #f7f7f7;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px;
     &,
     .woocommerce-loop-product__title {
       font-size: 14px;
-    }
-
-    > a {
-      border-bottom: 1px solid var(--black);
-      padding-bottom: 5px;
     }
 
     &_title,
@@ -57,7 +62,6 @@
     }
 
     &_title {
-      margin-bottom: 20px;
       .woocommerce-loop-product__title {
         flex: 1 1 60%;
         font-size: 16px;
@@ -66,20 +70,28 @@
 
     &_price {
       flex-wrap: wrap;
-      gap: 10px;
+      // gap: 10px;
       .product_claim {
         flex: 1 1 100%;
         margin-top: 10px;
       }
 
       .price {
-        margin-left: auto;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 10px;
         ins {
           text-decoration: none;
           .woocommerce-Price-amount.amount {
-            font-weight: 800;
-            font-size: 25px;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary-theme);
           }
+        }
+
+        del {
+          font-weight: 500;
         }
       }
     }
