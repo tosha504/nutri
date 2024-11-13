@@ -93,3 +93,4 @@ function get_category_display()
     echo '</ul>';
   }
 }
+class AWP_Menu_Walker extends Walker_Nav_Menu {}

@@ -14,10 +14,61 @@
   });
 
 
-
   jQuery('.slider-product-wrap__slider img').on('click', function name() {
     changeImage(jQuery(this).attr('src'))
-  })
+  }
+
+  )
+
+  // const swiper = new Swiper('.slider-product-wrap__slider', {
+  //   // Optional parameters
+  //   direction: 'vertical',
+  //   loop: true,
+
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
+
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
+
+  // jQuery('.slider-product-wrap__show').slick({
+  //   slidesToShow: 1, // Number of thumbnails visible
+  //   slidesToScroll: 1,
+  //   // asNavFor: '.slider-product-wrap__slider', // Sync with the main slider
+  //   dots: false,
+  //   arrows: false,
+  //   centerMode: false,
+  //   focusOnSelect: true,
+  //   infinite: false,
+  //   vertical: true, // Makes the slider vertical
+  //   verticalSwiping: true
+  // });
+
+
+  // jQuery('.slider-product-wrap__slider').slick({
+  //   slidesToShow: 3, // Number of thumbnails visible
+  //   slidesToScroll: 1,
+  //   asNavFor: '.slider-product-wrap__show', // Sync with the main slider
+  //   dots: false,
+  //   arrows: false,
+  //   centerMode: false,
+  //   focusOnSelect: true,
+  //   infinite: false,
+  //   vertical: true, // Makes the slider vertical
+  //   verticalSwiping: true
+  // });
+
 
   function changeImage(imageSrc) {
     console.log(jQuery('#mainImage').attr('src'));
@@ -28,53 +79,7 @@
     jQuery('#mainImage').attr('sizes', '(max-width: 128px) 100vw, 128px');
   }
 
-
-  jQuery('.slider-product-wrap__show').slick({
-    slidesToShow: 1, // Number of thumbnails visible
-    slidesToScroll: 1,
-    asNavFor: '.slider-product-wrap__slider', // Sync with the main slider
-    dots: false,
-    arrows: true,
-    centerMode: false,
-    focusOnSelect: true,
-    infinite: false,
-
-  });
   jQuery(window).on("load", function () {
-    jQuery('.slider-product-wrap__slider').slick({
-      slidesToShow: 4, // Number of thumbnails visible
-      slidesToScroll: 1,
-      asNavFor: '.slider-product-wrap__show',
-      dots: false,
-      arrows: false,
-      centerMode: false,
-      focusOnSelect: true,
-      infinite: false,
-      vertical: true,
-      verticalSwiping: true,
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            dots: true,
-            vertical: false,
-            verticalSwiping: false,
-          }
-        },
-        {
-          breakpoint: 576,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            dots: true,
-            vertical: false,
-            verticalSwiping: false,
-          }
-        },
-      ]
-    });
 
     jQuery('.flex-control-nav').slick({
       slidesToShow: 3, // Number of thumbnails visible
@@ -91,54 +96,6 @@
 
   });
 
-  //single-page woo
-  jQuery(document).on("click", '.cart-qty.plus, .cart-qty.minus', function (e) {
-    e.preventDefault();
-
-    const input = jQuery(this).parent().find('.input-text.qty.text');
-    const input_val = parseInt(input.val());
-    if (jQuery(this).hasClass('plus')) {
-      input.val(input_val + 1);
-      input.attr('value', input_val + 1)
-    }
-    else {
-      const new_val = input_val - 1;
-      if (new_val > 0) {
-        input.val(input_val - 1);
-        input.attr('value', input_val - 1)
-      }
-    }
-
-    input.trigger("change");
-  });
-  let timeout;
-  jQuery('.woocommerce').on('change', 'input.qty', function () {
-    if (timeout !== undefined) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function () {
-      jQuery("[name='update_cart']").trigger("click"); // trigger cart update
-    }, 100); // 1 second delay, half a second (500) seems comfortable too
-  });
-
-
-
-  if (jQuery('.cross-sells .products li').length > 2) {
-    // jQuery('.cross-sells .products').slick({
-    //   slidesToShow: 3,
-    //   slidesToScroll: 1,
-    //   dots: true,
-    //   arrows: false,
-    //   infinite: false,
-    //   swipe: true,
-    // })
-  }
-
-  jQuery('.arrow-down').on('click', function () {
-    jQuery('html, body').animate({
-      scrollTop: jQuery(window).scrollTop() + jQuery(window).height() - jQuery('header').height() - 50
-    }, 500);
-  })
 
   setTimeout(function () {
     if (getCookie('popupCookie') != 'submited') {
@@ -178,26 +135,10 @@
     jQuery('.age-verefication').css('display', 'block')
   }
 
-  body.on('click', '.megaMenu__menu-mg_link', function (e) {
-    e.preventDefault();
-    if (jQuery(this).siblings().hasClass('active')) {
-      jQuery(this).siblings().removeClass('active')
-      jQuery(this).addClass('active')
-    }
-    const number = jQuery(this).attr('data-key-link');
-    jQuery('.megaMenu__item').removeClass('active');
-    jQuery(`.megaMenu__item[data-key="${number}"]`).addClass('active');
-  })
-
 })(jQuery);
 window.addEventListener("load", (event) => {
 
-  jQuery(window).scroll(function () {
 
-    if (jQuery('.slider-product-wrap')) {
-      jQuery('.slider-product-wrap').css({ 'top': `${document.querySelector(".header").clientHeight + 20}px` })
-    }
-  });
 
   jQuery('.goals-qa-tnl__left_wrap-links a').on("click", function (e) {
     var target = jQuery(this).attr("href");
@@ -267,3 +208,84 @@ window.addEventListener("load", (event) => {
 
 })
 
+document.addEventListener('DOMContentLoaded', function () {
+
+  const gallery = document.querySelector('.slider-product-wrap__slider');
+  const images = JSON.parse(gallery.getAttribute('data-img-dot'));
+  console.log(images);
+  const swiper = new Swiper('.slider-product-wrap__slider', {
+    // direction: 'vertical',
+    slidesPerView: 1,
+    // spaceBetween: 10,
+    // slidesPerGroup: 1,
+    loop: false,
+    autoHeight: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+
+        return `<span class="${className}" style="background-image:url(${images[index]})"></span>`;
+      },
+    },
+    on: {
+
+      slideChange: function () {
+        updateVisibleDots();
+      }
+    }
+    // breakpoints: {
+    //   // when window width is >= 320px
+    //   320: {
+    //     slidesPerView: 2,
+    //     spaceBetween: 20
+    //   },
+    //   // when window width is >= 480px
+    //   769: {
+    //     slidesPerView: 3,
+    //     spaceBetween: 30
+    //   },
+    //   // when window width is >= 640px
+    //   1020: {
+    //     slidesPerView: 4,
+    //     spaceBetween: 40
+    //   }
+    // },
+
+  });
+  function updateVisibleDots() {
+    const bullets = document.querySelectorAll('.swiper-pagination .swiper-pagination-bullet');
+    const maxVisibleDots = 4;
+    const activeIndex = swiper.activeIndex;
+
+    // Hide all bullets initially
+    bullets.forEach((bullet, i) => bullet.style.display = 'none');
+
+    // Determine which bullets to show
+    let start = Math.max(0, activeIndex - Math.floor(maxVisibleDots / 2));
+    let end = Math.min(bullets.length, start + maxVisibleDots);
+
+    // Ensure that you show only maxVisibleDots at a time
+    if (end === bullets.length) {
+      start = Math.max(0, bullets.length - maxVisibleDots);
+    }
+
+    // Show the appropriate bullets
+    for (let i = start; i < end; i++) {
+      bullets[i].style.display = 'inline-block';
+    }
+  }
+
+  updateVisibleDots()
+  // document.querySelector('.custom-prev').addEventListener('click', function () {
+  //   console.log(1);
+
+  //   swiper.slidePrev();  // Move to the previous slide
+  // });
+
+  // // Custom trigger for 'Next' button
+  // document.querySelector('.custom-next').addEventListener('click', function () {
+  //   swiper.slideNext();  // Move to the next slide
+  // });
+
+});

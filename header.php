@@ -29,6 +29,7 @@
 
 			<div id="header-top-navigation" class="header__top">
 				<?php
+
 				wp_nav_menu(
 					array(
 						'theme_location' => 'menu-top-header',
@@ -74,6 +75,7 @@
 								'container' => false,
 								'menu_id' => 'primary-menu1',
 								'menu_class' => 'header__nav',
+								'walker' => new AWP_Menu_Walker()
 							),
 						);
 						?>

@@ -165,66 +165,18 @@
   if (getCookie('ageVerification') !== 'submited') {
     jQuery('.age-verefication').css('display', 'block');
   }
+  body.on('click', '.megaMenu__menu-mg_link', function (e) {
+    e.preventDefault();
+    if (jQuery(this).siblings().hasClass('active')) {
+      jQuery(this).siblings().removeClass('active');
+      jQuery(this).addClass('active');
+    }
+    var number = jQuery(this).attr('data-key-link');
+    jQuery('.megaMenu__item').removeClass('active');
+    jQuery(".megaMenu__item[data-key=\"".concat(number, "\"]")).addClass('active');
+  });
 })(jQuery);
 window.addEventListener("load", function (event) {
-  // const slider = document.querySelector('.image-slider');
-  // const images = slider.querySelectorAll('img');
-  // const prevBtn = document.querySelector('.prev-btn');
-  // const nextBtn = document.querySelector('.next-btn');
-
-  // let currentIndex = 0;
-  // let visibleImages = getVisibleImages();
-  // let imageHeight = getImageHeight();
-
-  // // Function to get the number of visible images based on the current screen size
-  // function getVisibleImages() {
-  //   if (window.innerWidth >= 1440) {
-  //     return 5; // Show 5 images on xxl screens
-  //   } else if (window.innerWidth >= 992) {
-  //     return 4; // Show 4 images on lg screens
-  //   } else if (window.innerWidth >= 768) {
-  //     return 3; // Show 3 images on md screens
-  //   } else {
-  //     return 2; // Show 2 images on mobile screens
-  //   }
-  // }
-
-  // // Function to get the height of each image based on the current visible images
-  // function getImageHeight() {
-  //   const sliderTotalHeight = 500; // Total height of the slider
-  //   return sliderTotalHeight / visibleImages;
-  // }
-
-  // // Function to update the slider position (scroll to the correct image)
-  // function updateSliderPosition() {
-  //   slider.scrollTo({
-  //     top: imageHeight * currentIndex,
-  //     behavior: 'smooth',
-  //   });
-  // }
-
-  // // Next button click: Move to the next image
-  // nextBtn.addEventListener('click', () => {
-  //   if (currentIndex < images.length - visibleImages) {
-  //     currentIndex++;
-  //     updateSliderPosition();
-  //   }
-  // });
-
-  // // Previous button click: Move to the previous image
-  // prevBtn.addEventListener('click', () => {
-  //   if (currentIndex > 0) {
-  //     currentIndex--;
-  //     updateSliderPosition();
-  //   }
-  // });
-
-  // // Resize event listener: Update the image height and visible images on window resize
-  // window.addEventListener('resize', () => {
-  //   visibleImages = getVisibleImages();
-  //   imageHeight = getImageHeight();
-  //   updateSliderPosition(); // Ensure the slider remains correctly positioned after resize
-  // });
   jQuery(window).scroll(function () {
     if (jQuery('.slider-product-wrap')) {
       jQuery('.slider-product-wrap').css({
