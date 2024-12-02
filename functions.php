@@ -54,6 +54,7 @@ function start_setup()
 			'menu-header' => esc_html__('Header menu', 'hashimoto'),
 			'menu-right-header' => esc_html__('Header right menu', 'hashimoto'),
 			'menu-top-header' => esc_html__('Header top menu', 'hashimoto'),
+			'mobile-header' => esc_html__('Mobile menu', 'hashimoto'),
 		)
 	);
 

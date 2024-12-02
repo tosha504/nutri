@@ -78,6 +78,16 @@
 								'walker' => new AWP_Menu_Walker()
 							),
 						);
+						wp_nav_menu(
+							array(
+								'theme_location' => 'mobile-header',
+								'container' => false,
+								'menu_id' => 'mobile-header',
+								'menu_class' => 'header__nav',
+								'walker' => new AWP_Menu_Walker()
+							),
+						);
+
 						?>
 					</nav><!-- #site-navigation -->
 

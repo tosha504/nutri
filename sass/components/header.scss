@@ -12,6 +12,64 @@
     font-weight: 700;
   }
 
+  #primary-menu1 {
+    display: none;
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      display: flex;
+    }
+  }
+
+  #mobile-header {
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      display: none;
+    }
+
+    display: flex;
+    .sub-menu {
+      display: none;
+      flex: 1 1 100%;
+      order: 3;
+    }
+  }
+  #mobile-header,
+  #primary-menu1 {
+    li {
+      display: flex;
+      @media (hover: hover) {
+        &:hover {
+          &::after {
+            transform: rotate(-90deg);
+            background: url(../assets/icons/arrows/pink.svg) no-repeat center !important;
+          }
+        }
+      }
+      &.is-megamenu,
+      &.menu-item-has-children {
+        &::after {
+          content: "";
+          max-width: 100%;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          background: url(../assets/icons/arrows/black.svg) no-repeat center;
+          transition: 0.3s;
+        }
+      }
+
+      &.menu-item-has-children {
+        gap: 20px;
+        flex-wrap: wrap;
+
+        &.active {
+          background-color: green;
+        }
+
+        &::after {
+          order: 2;
+        }
+      }
+    }
+  }
   &__nav {
     display: flex;
     align-items: center;
@@ -30,7 +88,7 @@
       border: 1px solid var(--primary-theme);
       transition: 0.25s;
       @media (min-width: map-get($grid-breakpoints, xl)) {
-        display: none;
+        display: none !important;
       }
 
       a {
@@ -107,7 +165,7 @@
   }
 
   &__bottom {
-    // padding: 30px 0;
+    padding: 30px 0;
     .container {
       display: flex;
       align-items: center;
@@ -202,9 +260,6 @@
   }
 
   &__nav {
-    > li {
-      padding: 30px 0;
-    }
     .is-megamenu {
       @media (hover: hover) {
         &:hover {
@@ -249,36 +304,5 @@
         }
       }
     }
-
-    // ul {
-    //   display: flex;
-    //   flex-direction: column;
-    //   gap: 20px;
-    //   align-items: flex-start;
-
-    //   &.sub-menu {
-    //     display: none;
-    //     padding: 5px 0;
-    //     margin-left: 20px;
-    //     li {
-    //       padding: 5px 0;
-    //       a {
-    //         white-space: nowrap;
-    //       }
-    //     }
-
-    //   }
-    // }
-
-    //if have submenu
-    // .menu-item-has-children {
-    // 	a {
-    // 		display: flex;
-    // 		align-items: center;
-    // 		align-items: center;
-    // 		flex-direction: row-reverse;
-    // 		justify-content: flex-end;
-    // 	}
-    // }
   }
 }

@@ -1,6 +1,11 @@
 body {
   &.woocommerce-checkout {
     .site-main {
+      @for $i from 1 through 6 {
+        h#{7 - $i} {
+          font-size: clamp(20px, 4vw, 25px);
+        }
+      }
       .container {
         margin: 50px auto;
 
@@ -61,16 +66,27 @@ body {
 
         .woocommerce-billing-fields__field-wrapper {
           display: flex;
+          border: 1px solid var(--grey);
+          border-radius: 20px;
           // flex-direction: column;
           gap: 10px;
+          padding: 20px;
           flex-wrap: wrap;
+          .select2-selection.select2-selection--single {
+            margin: 0;
+          }
+          @media (min-width: map-get($grid-breakpoints, md)) {
+            padding: 30px;
+          }
           p {
             width: 100%;
-            &:first-child,
-            &:nth-child(2) {
+            // &:first-child,
+            // &:nth-child(2) {
+            @media (min-width: map-get($grid-breakpoints, md)) {
               flex: 0 1 calc(50% - 10px);
               width: 50%;
             }
+            // }
           }
         }
 
@@ -178,7 +194,7 @@ body {
               }
 
               table {
-                border: 1px solid var(--tag-grey);
+                border: 1px solid var(--grey);
                 border-radius: 20px;
                 padding: 20px;
                 width: 100%;

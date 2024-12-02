@@ -28,12 +28,6 @@
       }
     }
 
-    &_left,
-    &_right {
-      // @media (min-width: map-get($grid-breakpoints, md)) {
-      //   flex: 1 1 calc((100% / 2) - 20px);
-      // }
-    }
     &_right,
     &_center {
       h5 {

@@ -12,6 +12,7 @@ body {
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
       position: relative;
+      background-size: cover;
 
       @media (min-width: map-get($grid-breakpoints, md)) {
         background-position: center right;

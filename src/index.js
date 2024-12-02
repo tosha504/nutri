@@ -13,7 +13,45 @@
     body.toggleClass("fixed-page");
   });
 
+  function mobNavMenu() {
 
+    jQuery(document).on("click", ".menu-item-has-children", function (e) {
+
+      console.log(jQuery(e.target).children().siblings("ul .sub-menu"));
+      jQuery(e.target).children().siblings("ul .sub-menu").slideToggle(500);
+
+      if (
+        jQuery(e.target)
+          // .parent()
+          .children()
+          .siblings("ul .sub-menu")
+          .css("display") == "block"
+      ) {
+        jQuery(e.target)
+          // .parent()
+          .siblings()
+          .children("ul .sub-menu")
+          .slideUp(500);
+
+        jQuery(e.target)
+          // .parent()
+          .siblings()
+          .children("a")
+          .removeClass("active");
+      }
+
+
+      // if (!jQuery(this).parent().hasClass("active")) {
+      //   jQuery(this).parent().toggleClass("active");
+      //   jQuery(this).parent().siblings('.menu-item-has-children.active').toggleClass("active");
+      // } else {
+      //   jQuery(this).parent().removeClass("active");
+      // }
+    });
+  }
+  if (jQuery(window).width() < 1200) {
+    mobNavMenu();
+  }
 
   jQuery('.slider-product-wrap__slider img').on('click', function name() {
     changeImage(jQuery(this).attr('src'))
@@ -180,6 +218,8 @@
 
   body.on('click', '.megaMenu__menu-mg_link', function (e) {
     e.preventDefault();
+    console.log(jQuery(this).parent());
+
     if (jQuery(this).siblings().hasClass('active')) {
       jQuery(this).siblings().removeClass('active')
       jQuery(this).addClass('active')
