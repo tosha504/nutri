@@ -244,7 +244,7 @@ function add_cross_sells_to_checkout()
   // Set up the query arguments
   $args = array(
     'post_type' => 'product',
-    'posts_per_page' => 3, // Limit the number of cross-sells displayed
+    'posts_per_page' => 31, // Limit the number of cross-sells displayed
     'post__in' => $cross_sells,
     'orderby' => 'rand' // Randomize the display of products
   );
@@ -254,7 +254,7 @@ function add_cross_sells_to_checkout()
 
   if ($products->have_posts()) {
     echo '<div class="cross-sell-products">';
-    echo '<h3>' . __('You may also like...', 'woocommerce') . '</h3>';
+    echo '<h3>' . __('You may also like...', 'hashimoto') . '</h3>';
     echo '<ul class="products shop-tnl">';
 
     while ($products->have_posts()) {

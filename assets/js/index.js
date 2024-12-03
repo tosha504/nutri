@@ -20,7 +20,7 @@
   });
   function mobNavMenu() {
     jQuery(document).on("click", ".menu-item-has-children", function (e) {
-      console.log(jQuery(e.target).children().siblings("ul .sub-menu"));
+      console.log(jQuery(e.target));
       jQuery(e.target).children().siblings("ul .sub-menu").slideToggle(500);
       if (jQuery(e.target)
       // .parent()
@@ -31,6 +31,12 @@
         jQuery(e.target)
         // .parent()
         .siblings().children("a").removeClass("active");
+      }
+      if (!jQuery(this).hasClass("active")) {
+        jQuery(this).toggleClass("active");
+        jQuery(this).siblings('.menu-item-has-children.active').toggleClass("active");
+      } else {
+        jQuery(this).removeClass("active");
       }
 
       // if (!jQuery(this).parent().hasClass("active")) {

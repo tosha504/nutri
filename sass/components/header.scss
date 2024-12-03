@@ -29,12 +29,19 @@
       display: none;
       flex: 1 1 100%;
       order: 3;
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
     }
   }
   #mobile-header,
   #primary-menu1 {
     li {
       display: flex;
+      align-items: center;
       @media (hover: hover) {
         &:hover {
           &::after {
@@ -48,8 +55,8 @@
         &::after {
           content: "";
           max-width: 100%;
-          width: 24px;
-          height: 24px;
+          width: 32px;
+          height: 32px;
           display: flex;
           background: url(../assets/icons/arrows/black.svg) no-repeat center;
           transition: 0.3s;
@@ -61,7 +68,13 @@
         flex-wrap: wrap;
 
         &.active {
-          background-color: green;
+          > a {
+            color: var(--primary-theme);
+          }
+          &::after {
+            transform: rotate(-90deg);
+            background: url(../assets/icons/arrows/pink.svg) no-repeat center !important;
+          }
         }
 
         &::after {
@@ -282,9 +295,15 @@
 
   //__mobile
   &__nav {
+    &.active {
+      padding: 20px;
+      @media (min-width: map-get($grid-breakpoints, sm)) {
+        padding: 30px;
+      }
+    }
     @media (max-width: map-get($grid-breakpoints, xl)) {
-      padding: 50px;
       background-color: var(--white);
+      padding: 50px;
       position: fixed;
       left: -100%;
       top: 0;
