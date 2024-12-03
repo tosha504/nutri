@@ -29,9 +29,6 @@ get_header(); ?>
   <div class="container">
     <!-- current-symptoms start -->
     <?php
-    // $max_pages = get_option('posts_per_page');
-    // global $wp_query;
-    // $total_pages = $wp_query->max_num_pages;
     if (have_posts()) : ?>
       <ul class="blog-posts__items">
         <?php
