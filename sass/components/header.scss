@@ -44,6 +44,9 @@
       align-items: center;
       @media (hover: hover) {
         &:hover {
+          > a {
+            color: var(--primary-theme);
+          }
           &::after {
             transform: rotate(-90deg);
             background: url(../assets/icons/arrows/pink.svg) no-repeat center !important;
@@ -122,11 +125,6 @@
 
   a {
     color: var(--black);
-    @media (hover: hover) {
-      &:hover {
-        color: var(--primary-theme);
-      }
-    }
   }
 
   &__top,

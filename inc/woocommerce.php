@@ -104,33 +104,6 @@ add_action('woocommerce_cart_is_empty', function () {
   echo '</div >';
 }, 11);
 
-//content-product
-function custom_display_star_rating($product_id)
-{
-  // Get the product
-  $product = wc_get_product($product_id);
-  // Check if the product has a rating
-  if (! $product || ! $product->get_average_rating()) {
-    return;
-  }
-  // Get the average rating and round it to the nearest half star
-  $average = round($product->get_average_rating() * 2) / 2;
-  // Custom HTML for star rating
-  echo '<div class="custom-star-rating">';
-  // Loop to display full stars, half stars, and empty stars
-  for ($i = 1; $i <= 5; $i++) {
-    if ($i <= $average) {
-      echo '<span class="star full-star">&#9733;</span>'; // Full star
-    } elseif ($i - 0.5 == $average) {
-      echo '<span class="star half-star">&#9733;</span>'; // Half star
-    } else {
-      echo '<span class="star empty-star">&#9734;</span>'; // Empty star
-    }
-  }
-
-  echo '</div>';
-}
-
 //SINGLE-PAGE
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
