@@ -7,6 +7,16 @@
   ul {
     list-style: none;
   }
+  &__logo {
+    margin-right: auto;
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      a {
+        img {
+          max-width: 180px;
+        }
+      }
+    }
+  }
 
   [aria-current] {
     font-weight: 700;
@@ -20,8 +30,20 @@
   }
 
   #mobile-header {
+    background-color: #f9eded;
     @media (min-width: map-get($grid-breakpoints, xl)) {
       display: none;
+    }
+    &:before {
+      content: "Menu";
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    > li {
+      width: 100%;
     }
 
     display: flex;
@@ -35,6 +57,13 @@
           margin-bottom: 30px;
         }
       }
+    }
+  }
+  #mobile-extra-element {
+    display: none;
+    @media screen and (max-width: 1200px) {
+      display: block;
+      margin-top: 50px;
     }
   }
   #mobile-header,
@@ -57,6 +86,7 @@
       &.menu-item-has-children {
         &::after {
           content: "";
+          margin-left: auto;
           max-width: 100%;
           width: 32px;
           height: 32px;
@@ -89,10 +119,7 @@
   &__nav {
     display: flex;
     align-items: center;
-    gap: 10px;
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      gap: 30px;
-    }
+    gap: 30px;
 
     .primary {
       border-radius: 50px;
@@ -103,11 +130,15 @@
       background-color: var(--primary-theme);
       border: 1px solid var(--primary-theme);
       transition: 0.25s;
+      max-width: 160px;
+      text-align: center;
+      margin-top: 10px;
       @media (min-width: map-get($grid-breakpoints, xl)) {
         display: none !important;
       }
 
       a {
+        font-weight: 900;
         color: var(--white);
       }
 
@@ -162,7 +193,10 @@
 
     &_socials {
       gap: 25px;
-      margin-left: auto;
+      margin: 0 auto;
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        margin-left: auto;
+      }
       li {
         display: flex;
         align-items: center;
@@ -183,6 +217,35 @@
       // position: relative;
       .main-navigation {
         margin: 0 auto;
+        padding: 20px;
+        @media (min-width: map-get($grid-breakpoints, sm)) {
+          padding: 30px;
+        }
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          padding: 50px;
+        }
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+          padding: 0;
+        }
+        @media (max-width: map-get($grid-breakpoints, xl)) {
+          background-color: #f9eded;
+          position: fixed;
+          left: -100%;
+          top: 0;
+          bottom: 0;
+          width: 80%;
+          z-index: 1000;
+          transition: all 0.35s;
+
+          &.active {
+            left: 0;
+
+            a {
+              font-weight: 600;
+              font-size: 16px;
+            }
+          }
+        }
       }
 
       .header__nav_right {
@@ -199,7 +262,6 @@
           background-color: var(--primary-theme);
           border: 1px solid var(--primary-theme);
           transition: 0.25s;
-
           @media (max-width: map-get($grid-breakpoints, xl)) {
             display: none;
           }
@@ -293,33 +355,19 @@
 
   //__mobile
   &__nav {
-    &.active {
-      padding: 20px;
-      @media (min-width: map-get($grid-breakpoints, sm)) {
-        padding: 30px;
-      }
-    }
     @media (max-width: map-get($grid-breakpoints, xl)) {
       background-color: var(--white);
-      padding: 50px;
-      position: fixed;
-      left: -100%;
-      top: 0;
-      bottom: 0;
-      width: 80%;
-      z-index: 1000;
       flex-direction: column;
       align-items: start;
       overflow: auto;
-      transition: all 0.5s;
 
-      &.active {
-        left: 0;
-
-        a {
-          font-size: 16px;
-        }
-      }
+      // &.active {
+      //   left: 0;
+      //   a {
+      //     font-weight: 600;
+      //     font-size: 16px;
+      //   }
+      // }
     }
   }
 }

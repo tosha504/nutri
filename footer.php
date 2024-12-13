@@ -73,7 +73,17 @@ $footer_bottom_images = get_field('footer_bottom_images', 'options'); ?>
 		</div>
 		<div class="footer__columns">
 			<?php
-			echo !empty($footer_column_left) && count($footer_column_left) > 0 ? '<div class="footer__columns_left">' . $footer_column_left['text_content'] . '</div>' : '';
+			$socials = get_field('socials', 'options');
+			$socials_display = '';
+			if (!empty($socials) && count($socials) > 0) {
+				foreach ($socials as $key => $social) {
+					if (!empty($social['link']) && !empty($social['icon'])) {
+						$socials_display .= "<a href='" . esc_url($social['link']['url']) . "'>" . wp_get_attachment_image($social['icon'], 'full') . "</a>";
+					}
+				}
+			};
+
+			echo !empty($footer_column_left) && count($footer_column_left) > 0 ? '<div class="footer__columns_left">' . $footer_column_left['text_content'] .  '<div class="socials">' . $socials_display . '</div></div>' : '';
 			echo '<div class="footer__columns_center">';
 			footer_templates();
 			echo '</div>';

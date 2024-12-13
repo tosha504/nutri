@@ -38,10 +38,10 @@
 						'menu_class' => 'header__top_nav',
 					),
 				);
-				$socials = get_field('socials', 'options');
-				if (!empty($socials) && count($socials) > 0) { ?>
+				$socials_count = get_field('socials_count', 'options');
+				if (!empty($socials_count) && count($socials_count) > 0) { ?>
 					<ul class="header__top_socials">
-						<?php foreach ($socials as $key => $social) {
+						<?php foreach ($socials_count as $key => $social) {
 							$icon = !empty($social['icon']) ?  wp_get_attachment_image($social['icon'], 'full') : ''; ?>
 							<li>
 								<a href="<?php esc_url($social['link']) ?>" target="_blank"><?php echo $icon; ?></a>
@@ -84,11 +84,25 @@
 								'container' => false,
 								'menu_id' => 'mobile-header',
 								'menu_class' => 'header__nav',
-								'walker' => new AWP_Menu_Walker()
 							),
 						);
 
+
 						?>
+						<div id="mobile-extra-element" class="mobile-only">
+							<?php
+							$socials = get_field('socials_count', 'options');
+							$socials_display = '';
+							if (!empty($socials) && count($socials) > 0) {
+
+								foreach ($socials as $key => $social) {
+									if (!empty($social['link']) && !empty($social['icon'])) {
+										$socials_display .= "<a href='" . esc_url($social['link']) . "'>" . wp_get_attachment_image($social['icon'], 'full') . "</a>";
+									}
+								}
+							};
+							echo '<div class="socials">' . $socials_display . '</div>';
+							?>
 					</nav><!-- #site-navigation -->
 
 

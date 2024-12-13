@@ -53,8 +53,14 @@ body {
     margin-bottom: 20px;
   }
   .products {
+    flex-wrap: wrap;
     > .product {
-      flex: 1 1 calc((100% / 4) - 20px);
+      flex: 1 1 100%;
+      // max-width: calc((100% / 2) - 10px);
+
+      .add_to_cart_button {
+        font-size: 11px;
+      }
     }
   }
 }

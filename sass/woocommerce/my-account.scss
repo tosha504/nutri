@@ -41,6 +41,9 @@ body {
           .woocommerce-MyAccount-navigation-tnl,
           .woocommerce-MyAccount-content-tnl {
             flex: 1 1 100%;
+            section {
+              padding: 10px 0;
+            }
           }
 
           .woocommerce-MyAccount-navigation-tnl {
@@ -136,7 +139,36 @@ body {
               color: var(--black);
               border: 1px solid var(--black);
             }
+            .shop_table.order_details {
+              width: 100%;
+              thead {
+                tr {
+                  th {
+                    border-bottom: 1px solid var(--black);
+                    text-align: end;
+                    padding: 10px 0;
+                    &:first-child {
+                      text-align: left;
+                    }
+                  }
+                }
+              }
 
+              tbody,
+              tfoot {
+                tr {
+                  td,
+                  th {
+                    border-bottom: 1px solid var(--black);
+                    padding: 10px 0px;
+                    text-align: end;
+                    &:first-child {
+                      text-align: left;
+                    }
+                  }
+                }
+              }
+            }
             .woocommerce-MyAccount-orders {
               display: flex;
               flex-wrap: wrap;
@@ -159,6 +191,15 @@ body {
                     align-items: center;
                     padding: 0 10px;
                     text-align: start;
+                    &.woocommerce-orders-table__cell-order-total {
+                      flex-direction: column;
+                      justify-content: center;
+
+                      .woocommerce-Price-amount {
+                        font-weight: 900;
+                      }
+                    }
+
                     @media (max-width: map-get($grid-breakpoints, md)) {
                       &::before {
                         content: attr(data-title);

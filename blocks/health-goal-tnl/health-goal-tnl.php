@@ -20,7 +20,8 @@ if (!empty($block['anchor'])) {
 }
 $content = get_field('content');
 $items = get_field('items');
-$buttons = get_field('buttons'); ?>
+$buttons = get_field('buttons');
+?>
 
 <!-- health-goal-tnl start -->
 <section class="health-goal-tnl" <?php echo $anchor; ?>>
@@ -45,8 +46,9 @@ $buttons = get_field('buttons'); ?>
         <div class="health-goal-tnl__items-slider">
           <?php foreach ($items as $key => $item) {
             $id_goal = $item->ID;
+            $icon = get_field('icon', $id_goal);
             $goal = get_field('goal',  $id_goal); ?>
-            <a href="<?php echo get_permalink($id_goal); ?>" class="health-goal-tnl__items-slider_item" style="background-image:url(<?php echo get_the_post_thumbnail_url($id_goal); ?>);">
+            <a href="<?php echo get_permalink($id_goal); ?>" class="health-goal-tnl__items-slider_item" style="background-image:url(<?php echo wp_get_attachment_url($icon); ?>);">
               <?php echo '<p>' .  $goal . '</p>'; ?>
             </a>
           <?php } ?>

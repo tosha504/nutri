@@ -15,6 +15,10 @@
   }
 
   &__left {
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      align-items: center;
+      text-align: center;
+    }
     background-color: #f2cece;
     background-image: url(../assets/icons/okr.svg);
     background-position: center bottom;

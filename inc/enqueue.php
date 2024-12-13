@@ -23,7 +23,7 @@ if (!function_exists('start_scripts')) {
 			wp_enqueue_script("wc-cart-fragments");
 		}
 
-		if (is_checkout()) {
+		if (is_checkout() || is_checkout()) {
 			wp_enqueue_script('checkout_script', get_template_directory_uri() . ('/src/add_quantity.js'), array(), false, true);
 			$localize_script = array(
 				'ajax_url' => admin_url('admin-ajax.php')
@@ -97,3 +97,48 @@ function update_order_review()
 
 	wp_die();
 }
+
+function implement_ajax_apply_coupon()
+{
+	global $woocommerce;
+	$code = filter_input(INPUT_POST, 'coupon_code', FILTER_DEFAULT);
+
+	if (empty($code) || !isset($code)) {
+		$response = array(
+			'result'    => 'error',
+			'message'   => 'Code text field can not be empty.'
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit();
+	}
+
+	$coupon = new WC_Coupon($code);
+
+	if (!$coupon->id && !isset($coupon->id)) {
+		$response = array(
+			'result'    => 'error',
+			'message'   => 'Invalid code entered. Please try again.'
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit();
+	} else {
+		if (!empty($code) && !WC()->cart->has_discount($code)) {
+			WC()->cart->add_discount($code);
+			$response = array(
+				'result'    => 'success',
+				'message'   => 'successfully added coupon code'
+			);
+
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit();
+		}
+	}
+}
+
+add_action('wp_ajax_ajaxapplucoupon', 'implement_ajax_apply_coupon');
+add_action('wp_ajax_nopriv_ajaxapplucoupon', 'implement_ajax_apply_coupon');

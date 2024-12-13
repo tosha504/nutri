@@ -28,6 +28,16 @@
       }
     }
 
+    &_left {
+      display: flex;
+      flex-direction: column;
+
+      .socials {
+        margin-top: auto;
+        margin-bottom: 30px;
+      }
+    }
+
     &_right,
     &_center {
       h5 {
@@ -88,6 +98,10 @@
       gap: 5px;
       @media (min-width: map-get($grid-breakpoints, md)) {
         justify-content: flex-end;
+      }
+
+      img {
+        max-width: 80px;
       }
     }
   }

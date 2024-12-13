@@ -37,22 +37,17 @@ $order_button_text = __('I buy and pay', 'hashimoto');
 			<?php do_action('woocommerce_checkout_billing'); ?>
 			<?php do_action('woocommerce_checkout_shipping'); ?>
 
-
 			<h3 class="stepCheckout-title"><?php echo __('2. Shipping', 'hashimoto'); ?></h3>
-			<?php
-			if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : 	?>
+			<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : 	?>
 				<div class="ajax-shipp-method">
 					<?php do_action('woocommerce_review_order_before_shipping'); ?>
-
 					<?php wc_cart_totals_shipping_html(); ?>
-
 					<?php do_action('woocommerce_review_order_after_shipping'); ?>
 				</div>
 			<?php endif; ?>
 			<h3 class="stepCheckout-title"><?php echo __('3. Payments', 'hashimoto'); ?></h3>
 			<?php do_action('custom_payment_position'); ?>
 		</div>
-
 		<?php do_action('woocommerce_checkout_after_customer_details'); ?>
 
 	<?php endif; ?>
@@ -62,7 +57,6 @@ $order_button_text = __('I buy and pay', 'hashimoto');
 		<div>
 			<h3 id="order_review_heading"><?php esc_html_e('4.Your order', 'hashimoto'); ?></h3>
 			<br>
-
 			<?php do_action('woocommerce_checkout_order_review'); ?>
 			<div class="form-row place-order">
 				<noscript>

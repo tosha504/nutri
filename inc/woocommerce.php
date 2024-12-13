@@ -230,7 +230,7 @@ function add_cross_sells_to_checkout()
 }
 
 remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
-// remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
+remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 add_action('custom_payment_position', 'woocommerce_checkout_payment', 20);
 
 add_action('woocommerce_before_checkout_form', function () {
@@ -252,17 +252,66 @@ function woocommerce_header_add_to_cart_fragment($fragments)
     <span class="count">
       <?php echo sprintf($woocommerce->cart->cart_contents_count); ?>
     </span></a>
-<?php
+  <?php
   $fragments['li.cart-header a'] = ob_get_clean();
   ob_start();
+
+
 
   return $fragments;
 }
 
+add_filter('woocommerce_update_order_review_fragments', 'filter_update_order_review_fragments');
+function filter_update_order_review_fragments($fradments)
+{
+  ob_start();
+  if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) :
+  ?>
+    <div class="ajax-shipp-method">
+      <?php do_action('woocommerce_review_order_before_shipping'); ?>
+
+      <?php wc_cart_totals_shipping_html(); ?>
+
+      <?php do_action('woocommerce_review_order_after_shipping'); ?>
+    </div>
+  <?php
+  endif;
+
+  $fradments['.ajax-shipp-method'] = ob_get_clean();
+
+  return $fradments;
+}
 
 add_filter('woocommerce_cross_sells_total', 'bbloomer_change_cross_sells_product_no');
-
 function bbloomer_change_cross_sells_product_no($columns)
 {
   return 3;
+}
+
+add_action('wp_footer', 'cart_update_qty_script');
+function cart_update_qty_script()
+{
+  if (is_checkout()) :
+  ?>
+    <script>
+      let timeout;
+      jQuery('.checkout.woocommerce-checkout').on('change', 'input.qty', function() {
+        if (timeout !== undefined) {
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(function() {
+          jQuery('.cart-qty.plus, .minus').attr('disabled', true) // trigger cart update
+
+
+
+        }, 100); // 1 second delay, half a second (500) seems comfortable too
+        // jQuery(document.body).trigger('wc_fragment_refresh');
+        setTimeout(function() {
+          jQuery(document.body).trigger('wc_fragment_refresh'); // Refresh the cart fragments
+
+        }, 1000);
+      });
+    </script>
+<?php
+  endif;
 }

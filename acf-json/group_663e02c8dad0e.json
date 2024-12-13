@@ -66,7 +66,7 @@
         {
             "key": "field_663e06d26ef2a",
             "label": "Socials",
-            "name": "socials",
+            "name": "socials_count",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -175,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1725625460
+    "modified": 1734098899
 }

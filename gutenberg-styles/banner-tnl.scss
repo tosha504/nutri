@@ -42,7 +42,7 @@
       padding: 20px 20px 20px calc((100vw - 992px - 120px) / 2);
     }
     @media (min-width: map-get(b.$grid-breakpoints, xl)) {
-      padding: 50px 50px 50px calc((100vw - 1200px - 120px) / 2);
+      padding: 150px 50px 150px calc((100vw - 1200px - 120px) / 2);
     }
   }
   // &__content {

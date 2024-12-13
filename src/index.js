@@ -4,7 +4,7 @@
   console.log('ready');
   const burger = jQuery(".burger"),
     burgerSpan = jQuery(".burger span"),
-    nav = jQuery('.header__nav'),
+    nav = jQuery('.main-navigation'),
     body = jQuery('body');
 
   burger.on("click", function () {
@@ -177,6 +177,28 @@
     //   swipe: true,
     // })
   }
+
+  jQuery(document).ready(function () {
+    jQuery('#checkout_apply_coupon').click(function (ev) {
+      ev.preventDefault();
+      var code = jQuery('#checkout_coupon_code').val();
+      var data = {
+        action: 'ajaxapplucoupon',
+        coupon_code: code
+      };
+
+      jQuery.post(wc_checkout_params.ajax_url, data, function (returned_data) {
+        if (returned_data.result == 'error') {
+          alert('error');
+          jQuery('p.resoult-coupon').html(returned_data.message);
+        } else {
+          setTimeout(function () {
+            jQuery(document.body).trigger('update_checkout');
+          }, 500);
+        }
+      })
+    });
+  });
 
   jQuery('.arrow-down').on('click', function () {
     jQuery('html, body').animate({
