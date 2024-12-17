@@ -13,6 +13,14 @@
     body.toggleClass("fixed-page");
   });
 
+  jQuery(body).on('click', '.search-header', function (e) {
+    e.preventDefault()
+    jQuery(this).toggleClass('active');
+    jQuery('.search-form-tnl').toggleClass('active')
+    jQuery(body).toggleClass("fixed-page");
+    jQuery('html').toggleClass("dode");
+  })
+
   function mobNavMenu() {
 
     jQuery(document).on("click", ".menu-item-has-children", function (e) {

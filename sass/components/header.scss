@@ -161,6 +161,7 @@
   &__top,
   &__bottom {
     flex: 1 1 calc(100% - 30px);
+    background-color: var(--white);
   }
 
   &__top {
@@ -208,7 +209,21 @@
       }
     }
   }
+  .search-form-tnl {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: 0.3s;
+  }
 
+  .search-form-tnl.active {
+    visibility: visible;
+    transform: translateY(0%);
+  }
   &__bottom {
     padding: 30px 0;
     .container {
@@ -303,6 +318,10 @@
 
         .search-header {
           background: url(../assets/icons/search.svg) no-repeat center;
+          transition: 0.15s;
+          &.active {
+            background: url(../assets/icons/close-btn.svg) no-repeat center;
+          }
         }
 
         .cart-header {
