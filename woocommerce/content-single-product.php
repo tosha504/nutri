@@ -179,11 +179,19 @@ if (post_password_required()) {
       <?php } ?>
     </div>
   </section><!-- difference-tnl end -->
+  <div class="container">
+    <div class="opinion-block-tnl">
+      <!-- Begin eTrusted widget tag -->
+      <etrusted-widget data-etrusted-widget-id="wdg-aa2167f2-9c39-4fc0-bc04-4cffe2a3540a" data-sku="<?php echo $product->get_sku(); ?>"></etrusted-widget>
+      <!-- End eTrusted widget tag -->
+    </div>
+  </div>
   <?php
   $faq = get_field('faq');
   // Check if $tabs_items is not empty
   if (!empty($faq) && count($faq) > 0) { ?>
     <div class="container">
+      <h3 class="title-tnl" style="text-align: center;padding: 50px 0;">Najczęściej zadawane pytania</h3>
       <ul class="faq">
         <?php foreach ($faq as $key => $faq_item) { ?>
           <li>
@@ -214,6 +222,7 @@ if (post_password_required()) {
 
     })
   </script>
+
   <div class="container">
     <?php
     /**
@@ -226,6 +235,7 @@ if (post_password_required()) {
     do_action('woocommerce_after_single_product_summary');
     ?>
   </div>
+
 </div>
 
 <?php do_action('woocommerce_after_single_product'); ?>
