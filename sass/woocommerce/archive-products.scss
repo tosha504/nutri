@@ -17,6 +17,7 @@ body {
           .product-categories {
             list-style: none;
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             border-radius: 20px;
             font-size: 14px;

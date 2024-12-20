@@ -1,0 +1,56 @@
+body {
+  &.search-no-results {
+    .wrapper {
+      min-height: auto;
+    }
+    text-align: center;
+    .no-results.not-found {
+      .page-header {
+        margin-bottom: 20px;
+      }
+      .page-content {
+        p {
+          margin-bottom: 20px;
+        }
+
+        form {
+          display: flex;
+          justify-content: center;
+          label {
+            width: 100%;
+            max-width: 600px;
+            input {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+          }
+
+          input[type="submit"] {
+            border: 1px solid var(--black);
+            background-color: var(--black);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 5px 20px;
+            max-width: 260px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            max-width: 150px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            @media (hover: hover) {
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

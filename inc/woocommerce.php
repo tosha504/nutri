@@ -52,7 +52,6 @@ add_action('woocommerce_after_shop_loop',  function () {
 
 add_action('woocommerce_before_shop_loop', function () { ?>
   <aside class="custom-sidebar-shop">
-    <!-- <p class="custom-sidebar-shop__title"><?php _e('FILTRY', 'hashimoto'); ?></p> -->
     <ul>
       <?php dynamic_sidebar('left-sidebar'); ?>
     </ul>
@@ -117,7 +116,24 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_ti
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 25);
 add_action('woocommerce_single_product_summary', 'product_feature', 28);
 add_action('woocommerce_single_product_summary', 'delivery_tnl_single_product', 32);
-
+add_action('woocommerce_single_product_summary', 'package_tnl', 29);
+function package_tnl()
+{
+  $packages = get_field('packages');
+  if (!empty($packages) && count($packages) > 0) {
+  ?>
+    <div class="packegaes">
+      <?php foreach ($packages as $key => $package) {
+        // var_dump($package['text'], $package['choose_product'][0]);
+        $prod_id = $package['choose_product'][0]->ID;
+        $product = wc_get_product($prod_id); ?>
+        <a href="<?php echo get_permalink($prod_id); ?>">
+          <?php echo $package['text'];
+          ?> <p class="price"><span class="woocommerce-Price-amount amount"><bdi><?php echo $product->get_price(); ?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#122;&#322;</span></bdi></span></p></a>
+      <?php } ?>
+    </div>
+  <?php }
+}
 function product_feature()
 {
   $product_feature = get_field('product_feature', get_the_ID());
@@ -190,37 +206,29 @@ add_action('woocommerce_before_cart_collaterals', 'woocommerce_cart_totals');
 
 // CHECKOUT
 // Display cross-sell products on checkout page
-add_action('woocommerce_checkout_order_review', 'add_cross_sells_to_checkout');
+add_action('woocommerce_review_order_after_submit', 'add_cross_sells_to_checkout', 99);
 
 function add_cross_sells_to_checkout()
 {
-  // Get the current cart cross-sells
   $cross_sells = WC()->cart->get_cross_sells();
   if (empty($cross_sells)) {
-    return; // Exit if no cross-sell products found
+    return;
   }
-
-  // Set up the query arguments
   $args = array(
     'post_type' => 'product',
-    'posts_per_page' => 31, // Limit the number of cross-sells displayed
+    'posts_per_page' => 31,
     'post__in' => $cross_sells,
-    'orderby' => 'rand' // Randomize the display of products
+    'orderby' => 'rand'
   );
-
-  // Get the cross-sell products
   $products = new WP_Query($args);
-
   if ($products->have_posts()) {
     echo '<div class="cross-sell-products">';
     echo '<h3>' . __('You may also like...', 'hashimoto') . '</h3>';
     echo '<ul class="products shop-tnl">';
-
     while ($products->have_posts()) {
       $products->the_post();
       wc_get_template_part('content', 'product');
     }
-
     echo '</ul>';
     echo '</div>';
   }
@@ -301,14 +309,10 @@ function cart_update_qty_script()
         }
         timeout = setTimeout(function() {
           jQuery('.cart-qty.plus, .minus').attr('disabled', true) // trigger cart update
-
-
-
         }, 100); // 1 second delay, half a second (500) seems comfortable too
         // jQuery(document.body).trigger('wc_fragment_refresh');
         setTimeout(function() {
           jQuery(document.body).trigger('wc_fragment_refresh'); // Refresh the cart fragments
-
         }, 1000);
       });
     </script>

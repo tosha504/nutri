@@ -38,13 +38,16 @@ $order_button_text = __('I buy and pay', 'hashimoto');
 			<?php do_action('woocommerce_checkout_shipping'); ?>
 
 			<h3 class="stepCheckout-title"><?php echo __('2. Shipping', 'hashimoto'); ?></h3>
-			<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : 	?>
+			<?php
+			if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) {	?>
 				<div class="ajax-shipp-method">
 					<?php do_action('woocommerce_review_order_before_shipping'); ?>
 					<?php wc_cart_totals_shipping_html(); ?>
 					<?php do_action('woocommerce_review_order_after_shipping'); ?>
 				</div>
-			<?php endif; ?>
+			<?php } else {
+				echo '<p class="shipping-virtual">Produkt cyfrowy zostanie wysłany na podany adres e-mail po zrealizowaniu zamówienia.</p>';
+			} ?>
 			<h3 class="stepCheckout-title"><?php echo __('3. Payments', 'hashimoto'); ?></h3>
 			<?php do_action('custom_payment_position'); ?>
 		</div>

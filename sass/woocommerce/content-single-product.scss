@@ -1,5 +1,30 @@
 body {
   &.single-product {
+    .product {
+      &.sale {
+        .price {
+          ins {
+            text-decoration: none;
+          }
+
+          del {
+            .woocommerce-Price-amount.amount {
+              font-weight: 500;
+              font-size: 14px;
+              color: var(--black);
+            }
+          }
+        }
+      }
+      .price {
+        .woocommerce-Price-amount.amount {
+          font-weight: 700;
+          font-size: 22px;
+          text-decoration: none;
+          color: var(--primary-theme);
+        }
+      }
+    }
     .woocommerce-breadcrumb {
       flex: 1 1 100%;
       margin-bottom: 20px;
@@ -11,20 +36,11 @@ body {
       @media (min-width: map-get($grid-breakpoints, lg)) {
         gap: 0 50px;
       }
-
-      //   .woocommerce-product-gallery__wrapper {
-      //     max-width: 50%;
-      //   }
-
       .slider-product-wrap,
       .summary {
         flex: 1 1 100%;
         width: 50%;
-        // @media (min-width: map-get($grid-breakpoints, md)) {
-        //   flex: 0 1 calc(50% - 50px);
-        // }
       }
-
       .slider-product-wrap {
         @media (min-width: map-get($grid-breakpoints, md)) {
           max-width: calc(55% - 50px);
@@ -43,6 +59,10 @@ body {
         @media (min-width: map-get($grid-breakpoints, lg)) {
           flex: 0 1 calc(45% - 50px);
         }
+
+        .woocommerce-product-rating {
+          display: none;
+        }
       }
     }
   }
@@ -60,6 +80,10 @@ body {
 
       .add_to_cart_button {
         font-size: 11px;
+      }
+
+      .iworks-omnibus {
+        display: none;
       }
     }
   }

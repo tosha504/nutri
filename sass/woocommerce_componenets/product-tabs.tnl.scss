@@ -1,12 +1,12 @@
 .product-tabs-tnl {
-  padding: 25px 0 0;
+  padding: 25px 0;
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 
   @media (min-width: map-get($grid-breakpoints, md)) {
-    padding: 50px 0 0;
+    padding: 50px 0;
   }
 
   > li {

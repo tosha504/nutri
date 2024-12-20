@@ -3,7 +3,10 @@ body {
     font-size: 14px !important;
     background-color: var(--light-green-opacity) !important;
     .site-main {
-      padding: 50px 0 20px;
+      padding: 0;
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        padding: 50px 0 20px;
+      }
 
       h2 {
         font-size: clamp(20px, 4vw, 25px);
@@ -80,6 +83,16 @@ body {
             }
             td {
               text-align: right;
+              flex: 80%;
+            }
+          }
+        }
+
+        .order-total {
+          td {
+            small {
+              font-size: 12px;
+              display: block;
             }
           }
         }

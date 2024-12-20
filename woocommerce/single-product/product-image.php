@@ -41,9 +41,11 @@ $wrapper_classes = apply_filters(
 <div class="slider-product-wrap">
   <div class="slider-product-wrap__show">
     <?php
-    // if ($attachment_ids) {
-    //   echo wp_get_attachment_image($attachment_ids[0], 'full', false, array('id' => 'mainImage'));
-    // }
+    if ($post_thumbnail_id) {
+      echo '<div>';
+      echo wp_get_attachment_image($post_thumbnail_id, 'full');
+      echo '</div>';
+    }
     foreach ($attachment_ids as $attachment_id) {
       echo '<div>';
       echo wp_get_attachment_image($attachment_id, 'full');
@@ -55,6 +57,11 @@ $wrapper_classes = apply_filters(
   <?php if ($attachment_ids && $product->get_image_id()) { ?>
     <div class="slider-product-wrap__slider">
       <?php
+      if ($post_thumbnail_id) {
+        echo '<div>';
+        echo wp_get_attachment_image($post_thumbnail_id, 'full');
+        echo '</div>';
+      }
       foreach ($attachment_ids as $attachment_id) {
         echo '<div>';
         echo wp_get_attachment_image($attachment_id, 'full');

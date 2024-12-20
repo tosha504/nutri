@@ -44,7 +44,7 @@
 						<?php foreach ($socials_count as $key => $social) {
 							$icon = !empty($social['icon']) ?  wp_get_attachment_image($social['icon'], 'full') : ''; ?>
 							<li>
-								<a href="<?php esc_url($social['link']) ?>" target="_blank"><?php echo $icon; ?></a>
+								<a href="<?php echo esc_url($social['link']) ?>" target="_blank"><?php echo $icon; ?></a>
 								<p><?php echo $social['quantity']; ?></p>
 							</li>
 						<?php } ?>

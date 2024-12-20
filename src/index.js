@@ -118,11 +118,12 @@
         {
           breakpoint: 576,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 2,
             slidesToScroll: 1,
             dots: true,
             vertical: false,
             verticalSwiping: false,
+            infinite: true,
           }
         },
       ]

@@ -1,12 +1,13 @@
 @use "../sass/components/_breakpoints" as b;
-.banner-calc-tnl {
+.banner-calc-smpl-tnl {
   display: flex;
   overflow: hidden;
   align-items: center;
   justify-content: center;
   margin: 0 15px;
-  min-height: 60vh;
   background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 60vh;
   background-position: right 25% bottom 100%;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -20,12 +21,12 @@
   @media (min-width: map-get(b.$grid-breakpoints, lg)) {
     margin-left: 60px;
     margin-right: 60px;
-    min-height: 700px;
+    min-height: 300px;
   }
 
   &__wrap {
     text-align: center;
-    color: var((--white));
+    color: var((--black));
     padding: 0 25px;
     margin: 0 auto;
     @media (min-width: map-get(b.$grid-breakpoints, md)) {
@@ -34,7 +35,7 @@
 
     h1 {
       padding-bottom: 20px;
-      border-bottom: 1px solid var(--white);
+      border-bottom: 1px solid var(--black);
       margin-bottom: 20px;
     }
   }

@@ -92,7 +92,7 @@ $footer_bottom_images = get_field('footer_bottom_images', 'options'); ?>
 
 		<div class="footer__info">
 			<p class="footer__info_copyright">Copyright © 2018-2024 Nutri Help</p>
-			<p class="footer__info_create">Wykonanie: THE NEW LOOK</p>
+			<p class="footer__info_create">Wykonanie: <a href="https://thenewlook.pl/" target="_blank" rel="noopener noreferrer">THE NEW LOOK</a></p>
 			<?php
 			if (!empty($footer_bottom_images) && count($footer_bottom_images) > 0) {
 			?>

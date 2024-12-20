@@ -2,6 +2,7 @@
   &_content-title {
     color: #000;
     font-weight: 500;
+    text-align: center;
   }
 }
 
@@ -11,6 +12,8 @@
   justify-content: center;
 
   a {
-    // color: $primaryTheme;
+    color: var(--primary-theme);
+    font-size: clamp(25px, 100vw, 250px);
+    line-height: 1;
   }
 }

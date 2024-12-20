@@ -44,15 +44,10 @@ if (post_password_required()) {
        */
       do_action('woocommerce_before_single_product_summary');
       $tabs_items = [];
-      $content = !empty(get_the_content()) ? ['question_title' => 'Opis produktu', 'answer' => get_the_content()] : null;
       $product_composition = !empty(get_field('product_composition')) ? ['question_title' => 'Skład produktu', 'answer' => get_field('product_composition')] : null;
       $usage = !empty(get_field('usage')) ? ['question_title' => 'Sposób użycia', 'answer' => get_field('usage')] : null;
       $information_leaflet = !empty(get_field('information_leaflet')) ? ['question_title' => 'Ulotka informacyjna', 'answer' => get_field('information_leaflet')] : null;
 
-      // Add non-empty fields to the $tabs_items array
-      if ($content) {
-        $tabs_items[] = $content;
-      }
       if ($product_composition) {
         $tabs_items[] = $product_composition;
       }
@@ -61,17 +56,13 @@ if (post_password_required()) {
       }
       if ($information_leaflet) {
         $tabs_items[] = $information_leaflet;
-      }
-
-      ?>
-
+      } ?>
       <script>
         jQuery(document).on('click', '.question', function(e) {
           if (jQuery(this).parent().siblings().children('div.answer').is(':visible')) {
             jQuery(this).parent().siblings().children('.question').children('button').removeClass('active')
             jQuery(this).parent().siblings().children('div.answer').slideUp(200);
           }
-
           jQuery(this).children('button').toggleClass('active')
           jQuery(this).siblings('div.answer').slideToggle(200)
 
@@ -97,11 +88,21 @@ if (post_password_required()) {
       </div>
     </div>
 
-    <?php
-    // Check if $tabs_items is not empty
-    if (!empty($tabs_items)) { ?>
-      <ul class="product-tabs-tnl">
-        <?php foreach ($tabs_items as $key => $val) { ?>
+
+    <ul class="product-tabs-tnl">
+      <li>
+        <div class="question">
+          <p><?php echo 'Opis produktu'; ?></p>
+          <button aria-label="Toggle Accordion Content">
+            <div></div>
+          </button>
+        </div>
+        <div class="answer">
+          <?php echo apply_filters('the_content', get_the_content()); ?>
+        </div>
+      </li>
+      <?php if (!empty($tabs_items)) {
+        foreach ($tabs_items as $key => $val) { ?>
           <li>
             <div class="question">
               <p><?php echo $val['question_title']; ?></p>
@@ -113,11 +114,10 @@ if (post_password_required()) {
               <?php echo $val['answer']; ?>
             </div>
           </li>
-        <?php } ?>
-      </ul>
-    <?php }
-
-    if (have_rows('additional_info')) { ?>
+      <?php }
+      } ?>
+    </ul>
+    <?php if (have_rows('additional_info')) { ?>
       <div class="product-add-info">
         <?php while (have_rows('additional_info')) {
           the_row();

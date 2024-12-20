@@ -77,7 +77,7 @@
             color: var(--primary-theme);
           }
           &::after {
-            transform: rotate(-90deg);
+            transform: rotate(90deg);
             background: url(../assets/icons/arrows/pink.svg) no-repeat center !important;
           }
         }
@@ -105,7 +105,7 @@
             color: var(--primary-theme);
           }
           &::after {
-            transform: rotate(-90deg);
+            transform: rotate(90deg);
             background: url(../assets/icons/arrows/pink.svg) no-repeat center !important;
           }
         }
@@ -366,7 +366,6 @@
     a {
       text-transform: uppercase;
       line-height: 24px;
-      letter-spacing: 0.1em;
       font-size: 13px;
       font-weight: 400;
     }

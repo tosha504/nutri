@@ -1,9 +1,9 @@
 {
-    "key": "group_671220e2e9ca3",
-    "title": "banner calc",
+    "key": "group_6762e172eab6e",
+    "title": "banner smpl calc",
     "fields": [
         {
-            "key": "field_671220e3aba89",
+            "key": "field_6762e17309169",
             "label": "title",
             "name": "",
             "aria-label": "",
@@ -21,7 +21,7 @@
             "selected": 0
         },
         {
-            "key": "field_671220f4aba8a",
+            "key": "field_6762e1730cc10",
             "label": "title",
             "name": "title",
             "aria-label": "",
@@ -42,7 +42,7 @@
             "append": ""
         },
         {
-            "key": "field_67122133aba8b",
+            "key": "field_6762e244718be",
             "label": "choose tag",
             "name": "choose_tag",
             "aria-label": "",
@@ -55,6 +55,7 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "choices": {
                 "h1": "h1",
                 "h2": "h2",
@@ -73,46 +74,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_6712215eaba8c",
-            "label": "descr",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_67122166aba8d",
-            "label": "descr",
-            "name": "descr",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_671222abf2cab",
+            "key": "field_6762e1731b68e",
             "label": "bg image",
             "name": "",
             "aria-label": "",
@@ -130,7 +92,7 @@
             "selected": 0
         },
         {
-            "key": "field_671222bcf2cac",
+            "key": "field_6762e1731f127",
             "label": "image",
             "name": "image",
             "aria-label": "",
@@ -161,7 +123,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/banner-calc-tnl"
+                "value": "acf\/banner-calc-smpl-tnl"
             }
         ]
     ],
@@ -174,5 +136,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734533704
+    "modified": 1734533727
 }

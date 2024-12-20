@@ -48,13 +48,43 @@
     }
   }
 
+  .packegaes {
+    flex-wrap: wrap;
+    &,
+    a {
+      display: flex;
+      align-items: center;
+    }
+    a {
+      flex: 1 1 100%;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--black);
+
+      .price {
+        display: flex;
+        align-items: center;
+        &::after {
+          content: "";
+          margin-left: auto;
+          max-width: 100%;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          background: url(../assets/icons/arrows/black.svg) no-repeat 50%;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
   .woocommerce-variation-add-to-cart,
   form.cart {
     display: flex;
     .quantity {
       display: flex;
       flex: 1 1 25%;
-      border: 2px solid var(--black);
+      border: 1px solid var(--black);
       justify-content: space-between;
       border-radius: 50px;
       margin-right: 20px !important;

@@ -97,6 +97,13 @@
                 "operator": "==",
                 "value": "acf\/team-tnl"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/slider-product-tnl"
+            }
         ]
     ],
     "menu_order": 0,
@@ -108,5 +115,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730282745
+    "modified": 1734524105
 }

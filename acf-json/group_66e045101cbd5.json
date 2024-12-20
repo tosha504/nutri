@@ -138,12 +138,39 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "choices": {
                 "Niewysypianie się": "Niewysypianie się",
                 "Poranne zmęczenie": "Poranne zmęczenie",
                 "Długie zasypianie i słaby sen ": "Długie zasypianie i słaby sen ",
                 "Napięcie i stres": "Napięcie i stres",
-                "Brak witalności": "Brak witalności"
+                "Brak witalności": "Brak witalności",
+                "Przybieranie na wadze": "Przybieranie na wadze",
+                "Trudności z odchudzaniem mimo diety i ćwiczeń": "Trudności z odchudzaniem mimo diety i ćwiczeń",
+                "Problemy z utrzymaniem masy ciała": "Problemy z utrzymaniem masy ciała",
+                "Nadmierny apetyt na słodycze": "Nadmierny apetyt na słodycze",
+                "Spowolniony metabolizm": "Spowolniony metabolizm",
+                "Uczucie zmęczenia": "Uczucie zmęczenia",
+                "Problemy z pamięcią i koncentracją": "Problemy z pamięcią i koncentracją",
+                "Senność po posiłku": "Senność po posiłku",
+                "Obniżenie nastroju": "Obniżenie nastroju",
+                "Brak energii i siły": "Brak energii i siły",
+                "Przewlekłe zmęczenie": "Przewlekłe zmęczenie",
+                "Osłabienie": "Osłabienie",
+                "Nerwowość i rozdrażnienie": "Nerwowość i rozdrażnienie",
+                "Problemy z koncentracją": "Problemy z koncentracją",
+                "Słaba pamięć": "Słaba pamięć",
+                "Wahania nastroju": "Wahania nastroju",
+                "Rozdrażnienie": "Rozdrażnienie",
+                "Znużenie": "Znużenie",
+                "Słabe i wypadające włosy": "Słabe i wypadające włosy",
+                "Łamliwe paznokcie": "Łamliwe paznokcie",
+                "Sucha i szorstka skóra": "Sucha i szorstka skóra",
+                "Zrogowaciała skóra na łokciach lub kolanach": "Zrogowaciała skóra na łokciach lub kolanach",
+                "Opuchlizna": "Opuchlizna",
+                "Przemęczenie": "Przemęczenie",
+                "Problemy z wyciszeniem się": "Problemy z wyciszeniem się",
+                "Długie zasypianie i słaby sen": "Długie zasypianie i słaby sen"
             },
             "default_value": [],
             "return_format": "value",
@@ -256,5 +283,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733411094
+    "modified": 1734596801
 }

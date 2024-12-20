@@ -2,6 +2,22 @@
   display: flex;
   flex-direction: column;
   // gap: 10px;
+
+  &.sale {
+    .price {
+      ins {
+        text-decoration: none;
+      }
+
+      del {
+        .woocommerce-Price-amount.amount {
+          font-weight: 500;
+          font-size: 14px;
+          color: var(--black);
+        }
+      }
+    }
+  }
   a {
     width: 100%;
     &:first-child {
@@ -81,17 +97,10 @@
         flex-direction: row-reverse;
         align-items: center;
         gap: 10px;
-        ins {
-          text-decoration: none;
-          .woocommerce-Price-amount.amount {
-            font-weight: 700;
-            font-size: 22px;
-            color: var(--primary-theme);
-          }
-        }
-
-        del {
-          font-weight: 500;
+        .woocommerce-Price-amount.amount {
+          font-weight: 700;
+          font-size: 22px;
+          color: var(--primary-theme);
         }
       }
     }
