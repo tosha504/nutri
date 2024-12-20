@@ -64,6 +64,10 @@
       .price {
         display: flex;
         align-items: center;
+        .woocommerce-Price-amount.amount {
+          font-size: 16px !important;
+          color: #000 !important;
+        }
         &::after {
           content: "";
           margin-left: auto;

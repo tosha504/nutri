@@ -81,6 +81,7 @@
 
   &__info {
     display: flex;
+    align-items: center;
     gap: 20px;
     @media (max-width: map-get($grid-breakpoints, md)) {
       flex-wrap: wrap;
@@ -96,7 +97,8 @@
     &_copyright,
     &_icons {
       @media (min-width: map-get($grid-breakpoints, md)) {
-        flex: 1 1 calc((100% / 2) - 20px);
+        flex: 1 1 100%;
+        max-width: calc((100% / 2) - 20px);
       }
     }
 

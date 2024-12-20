@@ -1,5 +1,22 @@
 body {
   &.woocommerce-checkout {
+    .woocommerce-notices-wrapper {
+      div[role="alert"] {
+        background-color: var(--primary-theme);
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto 20px;
+        padding: 15px;
+
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          max-width: 90vw;
+        }
+
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+          max-width: 1200px;
+        }
+      }
+    }
     .site-main {
       @for $i from 1 through 6 {
         h#{7 - $i} {

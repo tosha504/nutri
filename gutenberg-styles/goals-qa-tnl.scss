@@ -35,6 +35,12 @@
       border-radius: 20px;
     }
 
+    &_wrap {
+      img {
+        border-radius: 0;
+      }
+    }
+
     .sticky {
       position: sticky;
       top: 200px;

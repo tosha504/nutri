@@ -14,7 +14,7 @@ get_header(); ?>
   <!-- blog-banner start -->
   <section class="blog-banner" style="background-image: url(<?php echo wp_get_attachment_image_url($image_banner, 'full') ?>);">
     <div class="blog-banner__wrap">
-      <h1><?php echo get_queried_object()->user_login; ?></h1>
+      <h1><?php echo get_queried_object()->display_name; ?></h1>
     </div>
     <?php get_category_display(); ?>
     <a href="#" class="arrow-down"></a>

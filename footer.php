@@ -28,7 +28,8 @@ $button_self = get_field('button_self', 'options');
 $footer_logo = !empty(get_field('footer_logo', 'options')) ? wp_get_attachment_image(get_field('footer_logo', 'options'), 'full') : "";
 $footer_column_left = get_field('footer_column_left', 'options');
 $footer_column_right = get_field('footer_column_right', 'options');
-$footer_bottom_images = get_field('footer_bottom_images', 'options'); ?>
+$footer_bottom_images = get_field('footer_bottom_images', 'options');
+$footer_bottom_images_shipping = get_field('footer_bottom_images_shipping', 'options'); ?>
 
 <!-- consultation-tnl start -->
 <section class="consultation-tnl">
@@ -92,19 +93,31 @@ $footer_bottom_images = get_field('footer_bottom_images', 'options'); ?>
 
 		<div class="footer__info">
 			<p class="footer__info_copyright">Copyright © 2018-2024 Nutri Help</p>
-			<p class="footer__info_create">Wykonanie: <a href="https://thenewlook.pl/" target="_blank" rel="noopener noreferrer">THE NEW LOOK</a></p>
-			<?php
-			if (!empty($footer_bottom_images) && count($footer_bottom_images) > 0) {
-			?>
-				<div class="footer__info_icons">
-					<?php
-					foreach ($footer_bottom_images as $key => $icon) {
+			<p class="footer__info_create">Wykonanie: <a href="https://thenewlook.pl/" target="_blank" rel="noopener noreferrer">THE NEW LOOK</a>
+				<?php
+				if (!empty($footer_bottom_images_shipping) && count($footer_bottom_images_shipping) > 0) {
+				?>
+			<p class="footer__info_icons">
+				<?php
+					foreach ($footer_bottom_images_shipping as $key => $icon) {
 						echo wp_get_attachment_image($icon["icon"], 'full');
 					}
-					?>
-				</div>
-			<?php }
-			?>
+				?>
+			</p>
+		<?php } ?>
+		</p>
+		<?php
+		if (!empty($footer_bottom_images) && count($footer_bottom_images) > 0) {
+		?>
+			<div class="footer__info_icons">
+				<?php
+				foreach ($footer_bottom_images as $key => $icon) {
+					echo wp_get_attachment_image($icon["icon"], 'full');
+				}
+				?>
+			</div>
+		<?php }
+		?>
 		</div>
 	</div>
 </footer><!-- #colophon -->
