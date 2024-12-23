@@ -58,7 +58,7 @@ $footer_bottom_images_shipping = get_field('footer_bottom_images_shipping', 'opt
 		<p><?php echo $description_self; ?></p>
 		<?php
 		if ($button) {
-			echo create_button($button, 'button button__primary');
+			echo create_button($button_self, 'button button__primary');
 		}
 		?>
 	</div>
