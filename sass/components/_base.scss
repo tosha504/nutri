@@ -139,3 +139,177 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.woocommerce-order {
+  margin: 100px 0 0;
+  background: #f1f1f1;
+  padding: 40px;
+}
+
+body {
+  &.woocommerce-order-pay {
+    #payment {
+      background: transparent;
+      .wc_payment_methods.payment_methods.methods {
+        border-bottom: none;
+        li {
+          &:not(:last-child) {
+            margin-bottom: 5px;
+          }
+          .payment_method_bacs,
+          .payment_method_cod {
+            margin-top: 5px;
+          }
+        }
+      }
+      .wc_payment_methods {
+        width: 100%;
+      }
+      .wc_payment_methods li {
+        display: flex;
+        gap: 10px;
+      }
+      .wc_payment_method label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex: 1 1 100%;
+      }
+      .wc_payment_method label img {
+        max-width: 50px;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.woocommerce-order
+  .woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.woocommerce-order
+  .woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
+  background-color: #f2cece;
+  padding: 30px;
+}
+
+.woocommerce-order .woocommerce-order-details {
+  padding: 50px 0;
+}
+
+.woocommerce-order .woocommerce-order-details__title {
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.woocommerce-order
+  .woocommerce-table.woocommerce-table--order-details.shop_table.order_details {
+  padding: 30px;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+  border: 5px solid #f2cece;
+  border-left: none;
+  border-right: none;
+}
+
+.woocommerce-order
+  .woocommerce-table.woocommerce-table--order-details.shop_table.order_details
+  th,
+.woocommerce-order
+  .woocommerce-table.woocommerce-table--order-details.shop_table.order_details
+  td {
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.woocommerce-order .woocommerce-customer-details {
+  padding: 0;
+}
+
+.woocommerce-order
+  .woocommerce-columns.woocommerce-columns--2.woocommerce-columns--addresses.col2-set.addresses {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.woocommerce-order .woocommerce-column {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.woocommerce-order .woocommerce-column .woocommerce-column__title {
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.woocommerce-order .woocommerce-column address {
+  background: #fff;
+  padding: 30px;
+  border: 5px solid #f2cece;
+  border-top: none;
+  border-bottom: none;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .woocommerce-order
+    .woocommerce-columns.woocommerce-columns--2.woocommerce-columns--addresses.col2-set.addresses {
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .woocommerce-order .woocommerce-column {
+    width: 49%;
+    margin-bottom: 30px;
+  }
+}
+
+.woocommerce-order-pay .site-main {
+  width: 100%;
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #f1f1f1;
+}
+
+.woocommerce-order-pay .woocommerce-error {
+  list-style: none;
+}
+
+.woocommerce-order-pay .wc_payment_methods.payment_methods.methods {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.woocommerce-order-pay .shop_table {
+  margin: 30px 0;
+  padding: 30px;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+}
+
+.woocommerce-order-pay .shop_table th,
+.woocommerce-order-pay .shop_table td {
+  padding: 10px;
+}
+
+.woocommerce-order-pay #place_order {
+  margin-top: 40px;
+  background: #f2cece;
+  padding: 1em;
+  border: none;
+  font-weight: 500;
+  color: var(--white);
+  text-transform: uppercase;
+  font-family: var(--object);
+  border: none;
+  font-size: 14px;
+  padding: 10px 20px;
+}
