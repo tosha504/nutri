@@ -17,14 +17,10 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      // flex: 1 1 calc((100% / 2) - 20px);
       flex: 0 1 calc((100% / 3) - 20px);
 
       img {
-        max-width: 65px;
-        @media (max-width: map-get(b.$grid-breakpoints, sm)) {
-          max-width: 50px;
-        }
+        max-width: 100%;
       }
       @media (min-width: map-get(b.$grid-breakpoints, lg)) {
         flex: 0 1 calc((100% / 4) - 20px);

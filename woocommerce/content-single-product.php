@@ -117,7 +117,9 @@ if (post_password_required()) {
       <?php }
       } ?>
     </ul>
-    <?php if (have_rows('additional_info')) { ?>
+    <?php if (have_rows('additional_info')) {
+      $additional_info_title = !empty(get_field('additional_info_title'))  ? '<h3 class="title-tnl" style="text-align: center">' . get_field('additional_info_title') . '</h3>' : "";
+      echo $additional_info_title; ?>
       <div class="product-add-info">
         <?php while (have_rows('additional_info')) {
           the_row();

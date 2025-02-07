@@ -419,6 +419,28 @@
             "selected": 0
         },
         {
+            "key": "field_67a5c132c9f5b",
+            "label": "Dodatkowe info naglowek",
+            "name": "additional_info_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_670cc5a37222a",
             "label": "Dodatkowe info",
             "name": "additional_info",
@@ -845,5 +867,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734691320
+    "modified": 1738916177
 }

@@ -30,7 +30,10 @@
       &__img {
         flex: 1 1 100%;
         display: flex;
-        max-width: 108px;
+        &,
+        img {
+          max-width: 103px;
+        }
         img {
           object-fit: contain;
         }
